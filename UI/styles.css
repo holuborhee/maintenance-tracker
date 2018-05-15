@@ -19,7 +19,39 @@ nav {
 	background: #F4F4F4;
 }
 
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.mxy-auto {
+	margin: auto;
+}
+
+.flex {
+	display: flex;
+}
+
+.justify-content-space-between {
+	justify-content: space-between;
+}
+
+.justify-content-space-evenly{
+	justify-content: space-evenly;
+}
+
+
+.justify-content-space-around {
+	justify-content: space-around;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-column {
+	flex-direction: column;
+}
 
 
 .s1 {

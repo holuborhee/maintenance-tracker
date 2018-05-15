@@ -2,6 +2,26 @@
 
 
 
+
+
+body {
+	background: #FAFAFA;
+	font-family: Lato, Roboto;
+}
+
+h1, .heading {
+	font-family: Work Sans;
+	font-size: 42px;
+	font-weight: bold;
+}
+
+nav {
+	background: #F4F4F4;
+}
+
+
+
+
 .s1 {
   width: 7.69230%;
 }

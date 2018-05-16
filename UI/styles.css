@@ -6,8 +6,8 @@
 }
 
 :root {
-  --primary: #2196F3;
-  --secondary: #48BBFC;
+  --primary: #48BBFC;
+  --secondary: #2196F3;
   --black: #3D3D3D;
   --hover: #0475CE;
   --white: #C4C4C4;
@@ -85,6 +85,10 @@ input[type="submit"], button {
   border-color: var(--primary);
   color: #FFFFFF;
   cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary);
 }
 
 .block {

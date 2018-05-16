@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 .test-border {
-  border: 1px solid red;   /* JUST A TEST ACLASS SHOULD BE REMOVED AFTER DEVELOPEMNT */
+  border: 1px solid #FF0000;   /* JUST A TEST ACLASS SHOULD BE REMOVED AFTER DEVELOPEMNT */
 }
 
 :root {
-    --primary: #2196F3;
-    --secondary: #48BBFC;
-    --black: #3D3D3D;
-    --hover: #0475CE;
-    --white: #C4C4C4;
+  --primary: #2196F3;
+  --secondary: #48BBFC;
+  --black: #3D3D3D;
+  --hover: #0475CE;
+  --white: #C4C4C4;
 }
 
 
@@ -43,16 +43,28 @@ nav {
   height: 100vh;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 
 .bg-primary, .bg-primary a {
   background-color: var(--primary);
   color: white;
 }
 
-input[type="text"], input[type="password"]{
+.logo {
+  color: #FFAF30;
+  font-size: 2em;
+  font-family: Work Sans;
+  letter-spacing: .5rem;
+  line-height: 2px;
+  text-transform: uppercase;
+}
+
+input[type="text"], input[type="password"], input[type="email"]{
   width: 100%;
- /* padding: .5rem 1rem;*/
- display: block;
+  display: block;
   padding: .375rem .75rem;
   font-size: 1.15rem;
   line-height: 1.5;
@@ -61,7 +73,6 @@ input[type="text"], input[type="password"]{
   border: 1px solid #F4F4F4;
   border-radius: .25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
 }
 
 input[type="submit"], button {
@@ -72,7 +83,7 @@ input[type="submit"], button {
 .btn-primary {
   background-color: var(--primary);
   border-color: var(--primary);
-  color: white;
+  color: #FFFFFF;
   cursor: pointer;
 }
 
@@ -82,6 +93,10 @@ input[type="submit"], button {
 
 form.mxy-auto {
   min-height: 40%;
+}
+
+.text-right {
+  text-align: right;
 }
 
 

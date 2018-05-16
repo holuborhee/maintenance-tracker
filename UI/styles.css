@@ -1,7 +1,10 @@
-
-
-
-
+:root {
+    --primary: #2196F3;
+    --secondary: #48BBFC;
+    --black: #3D3D3D;
+    --hover: #0475CE;
+    --white: #C4C4C4;
+}
 
 
 body {
@@ -19,6 +22,153 @@ nav {
 	background: #F4F4F4;
 }
 
+
+/* 48BBFC - blue
+   2196F3 - 
+   3D3D3D - black
+   #FAFAFA - 
+   #F4F4F4 - grey
+*/
+
+
+/* Margin Utilities */
+
+.mt1 {
+	margin-top: 0.25rem !important;
+}
+
+.mt2 {
+	margin-top: 0.5rem !important;
+}
+
+.mt3 {
+	margin-top: 1rem !important;
+}
+
+
+.mt4 {
+	margin-top: 1.5rem !important;
+}
+
+.mt5 {
+	margin-top: 3rem !important;
+}
+
+.mb1 {
+	margin-bottom: 0.25rem !important;
+}
+
+.mb2 {
+	margin-bottom: 0.5rem !important;
+}
+
+.mb3 {
+	margin-bottom: 1rem !important;
+}
+
+
+.mb4 {
+	margin-bottom: 1.5rem !important;
+}
+
+.mb5 {
+	margin-bottom: 3rem !important;
+}
+
+
+.mr1 {
+	margin-right: 0.25rem !important;
+}
+
+.mr2 {
+	margin-right: 0.5rem !important;
+}
+
+.mr3 {
+	margin-right: 1rem !important;
+}
+
+
+.mr4 {
+	margin-right: 1.5rem !important;
+}
+
+.mr5 {
+	margin-right: 3rem !important;
+}
+
+.ml1 {
+	margin-left: 0.25rem !important;
+}
+
+.ml2 {
+	margin-left: 0.5rem !important;
+}
+
+.ml3 {
+	margin-left: 1rem !important;
+}
+
+
+.ml4 {
+	margin-left: 1.5rem !important;
+}
+
+.ml5 {
+	margin-left: 3rem !important;
+}
+
+.mx1 {
+	margin-right: 0.25rem !important;
+	margin-left: 0.25rem !important;
+}
+
+.mx2 {
+	margin-right: 0.5rem !important;
+	margin-left: 0.5rem !important;
+} 
+
+.mx3 {
+	margin-right: 1rem !important;
+	margin-left: 1rem !important;
+} 
+
+.mx4 {
+	margin-right: 1.5rem !important;
+	margin-left: 1.5rem !important;
+} 
+
+.mx5 {
+	margin-right: 3rem !important;
+	margin-left: 3rem !important;
+}
+
+.my1 {
+	margin-top: 0.25rem !important;
+	margin-bottom: 0.25rem !important;
+}
+
+.my2 {
+	margin-top: 0.5rem !important;
+	margin-bottom: 0.5rem !important;
+}
+
+.my3 {
+	margin-top: 1rem !important;
+	margin-bottom: 1rem !important;
+}
+
+.my4 {
+	margin-top: 1.5rem !important;
+	margin-bottom: 1.5rem !important;
+}
+
+.my5 {
+	margin-top: 3rem !important;
+	margin-bottom: 3rem !important;
+}  
+
+
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -27,6 +177,147 @@ nav {
 .mxy-auto {
 	margin: auto;
 }
+
+
+
+
+.pt1 {
+	padding-top: 0.25rem !important;
+}
+
+.pt2 {
+	padding-top: 0.5rem !important;
+}
+
+.pt3 {
+	padding-top: 1rem !important;
+}
+
+
+.pt4 {
+	padding-top: 1.5rem !important;
+}
+
+.pt5 {
+	padding-top: 3rem !important;
+}
+
+.pb1 {
+	padding-bottom: 0.25rem !important;
+}
+
+.pb2 {
+	padding-bottom: 0.5rem !important;
+}
+
+.pb3 {
+	padding-bottom: 1rem !important;
+}
+
+
+.pb4 {
+	padding-bottom: 1.5rem !important;
+}
+
+.pb5 {
+	padding-bottom: 3rem !important;
+}
+
+
+.pr1 {
+	padding-right: 0.25rem !important;
+}
+
+.pr2 {
+	padding-right: 0.5rem !important;
+}
+
+.pr3 {
+	padding-right: 1rem !important;
+}
+
+
+.pr4 {
+	padding-right: 1.5rem !important;
+}
+
+.pr5 {
+	padding-right: 3rem !important;
+}
+
+.pl1 {
+	padding-left: 0.25rem !important;
+}
+
+.pl2 {
+	padding-left: 0.5rem !important;
+}
+
+.pl3 {
+	padding-left: 1rem !important;
+}
+
+
+.pl4 {
+	padding-left: 1.5rem !important;
+}
+
+.pl5 {
+	padding-left: 3rem !important;
+}
+
+.px1 {
+	padding-right: 0.25rem !important;
+	padding-left: 0.25rem !important;
+}
+
+.px2 {
+	padding-right: 0.5rem !important;
+	padding-left: 0.5rem !important;
+} 
+
+.px3 {
+	padding-right: 1rem !important;
+	padding-left: 1rem !important;
+} 
+
+.px4 {
+	padding-right: 1.5rem !important;
+	padding-left: 1.5rem !important;
+} 
+
+.px5 {
+	padding-right: 3rem !important;
+	padding-left: 3rem !important;
+}
+
+.py1 {
+	padding-top: 0.25rem !important;
+	padding-bottom: 0.25rem !important;
+}
+
+.py2 {
+	padding-top: 0.5rem !important;
+	padding-bottom: 0.5rem !important;
+}
+
+.py3 {
+	padding-top: 1rem !important;
+	padding-bottom: 1rem !important;
+}
+
+.py4 {
+	padding-top: 1.5rem !important;
+	padding-bottom: 1.5rem !important;
+}
+
+.py5 {
+	padding-top: 3rem !important;
+	padding-bottom: 3rem !important;
+}
+
+
+/* Flex Utitlities */
 
 .flex {
 	display: flex;
@@ -53,6 +344,9 @@ nav {
 	flex-direction: column;
 }
 
+
+
+/* Utilities for sizing acroos screen sizes */
 
 .s1 {
   width: 7.69230%;

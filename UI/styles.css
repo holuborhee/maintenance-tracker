@@ -69,6 +69,13 @@ input[type="submit"], button {
   border-radius: .25rem;
 }
 
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
 .block {
   display: block;
 }

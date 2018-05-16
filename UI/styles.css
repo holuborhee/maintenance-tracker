@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Work+Sans:400,900&amp;subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
+.test-border {
+  border: 1px solid red;   /* JUST A TEST ACLASS SHOULD BE REMOVED AFTER DEVELOPEMNT */
+}
 
 :root {
     --primary: #2196F3;
@@ -14,6 +17,8 @@
 body {
 	background: #FAFAFA;
 	font-family: Lato, Roboto;
+  margin: 0px;
+  color: var(--black);
 }
 
 h1, .heading {
@@ -26,13 +31,51 @@ nav {
 	background: #F4F4F4;
 }
 
+.h-100 {
+  height: 100%;
+}
 
-/* 48BBFC - blue
-   2196F3 - 
-   3D3D3D - black
-   #FAFAFA - 
-   #F4F4F4 - grey
-*/
+.h-50 {
+  height: 50%;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+
+.bg-primary, .bg-primary a {
+  background-color: var(--primary);
+  color: white;
+}
+
+input[type="text"], input[type="password"]{
+  width: 100%;
+ /* padding: .5rem 1rem;*/
+ display: block;
+  padding: .375rem .75rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #F4F4F4;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+
+input[type="submit"], button {
+  font-size: 1.25rem;
+  border-radius: .25rem;
+}
+
+.block {
+  display: block;
+}
+
+form.mxy-auto {
+  min-height: 40%;
+}
 
 
 /* Margin Utilities */
@@ -348,7 +391,13 @@ nav {
 	flex-direction: column;
 }
 
+.align-items-center {
+  align-items: center;
+}
 
+.align-self-end {
+  align-self: flex-end;
+}
 
 /* Utilities for sizing acroos screen sizes */
 

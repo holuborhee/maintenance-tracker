@@ -204,8 +204,12 @@ nav .title {
 
 .row-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.row-wrapper span {
+  display: flex;
 }
 
 .group-input {
@@ -387,14 +391,7 @@ input[type="submit"], button {
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) { 
 
-  .row-wrapper {
-    flex-direction: column;
-  }
-
-  .row-wrapper * {
-    margin-top: 0.15rem;
-    margin-bottom: 0.15rem;
-  }
+  
   select, input[type="text"], input[type="password"], input[type="email"], textarea{
     padding: 0.6rem 0.8rem;
     font-size: 1rem;
@@ -451,6 +448,15 @@ input[type="submit"], button {
     padding: .5rem 1rem;
     border-radius: .25rem;
     margin-top: 4rem
+  }
+
+  .row-wrapper {
+    flex-direction: column;
+  }
+
+  .row-wrapper * {
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
   }
 }
 

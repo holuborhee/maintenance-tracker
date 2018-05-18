@@ -266,6 +266,29 @@ input[type="submit"], button {
   color: #FF0000;
 }
 
+.request-full-detail {
+  min-height: 200px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)!important;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)!important;
+  width: 90%;
+  padding: 1rem .5rem;
+
+}
+
+.request-full-detail, .change-status {
+  margin: 3rem auto;
+}
+
+.change-status {
+  width: 750px;
+}
+
+.request-full-detail h3 {
+  color: var(--secondary-b);
+
+}
+
 
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -316,6 +339,8 @@ input[type="submit"], button {
   .form--newrequest {
     width: 95%;
   }
+
+
   
   
 }
@@ -337,6 +362,10 @@ input[type="submit"], button {
 @media (max-width: 768px) { 
   .request-collection {
     grid-template-columns: 1fr;
+  }
+
+  .request-full-detail, .change-status {
+    width: 400px;
   }
 }
 

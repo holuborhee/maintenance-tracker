@@ -1,0 +1,25 @@
+{
+  "name": "maintenance-tracker",
+  "version": "1.0.0",
+  "description": "Helps to track maintenance requests of user",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holuborhee/maintenance-tracker.git"
+  },
+  "keywords": [
+    "traka"
+  ],
+  "author": "holuborhee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/holuborhee/maintenance-tracker/issues"
+  },
+  "homepage": "https://github.com/holuborhee/maintenance-tracker#readme",
+  "dependencies": {
+    "npm": "^6.0.1"
+  }
+}

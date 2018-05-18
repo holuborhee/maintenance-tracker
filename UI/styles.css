@@ -35,6 +35,17 @@ nav {
   padding-right: 1rem;
 }
 
+nav .title {
+  display: flex;
+}
+
+.title p {
+  font-size: 1.25rem;
+  background-color: var(--white);
+  color: var(--hover);
+  align-self: flex-start;
+}
+
 .main-wrapper {
   /* Genral style for wrappers here */
   display: flex;

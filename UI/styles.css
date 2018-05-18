@@ -28,20 +28,31 @@ h1, .heading {
 }
 
 nav {
-	background: #F4F4F4;
+	background: var(--primary);
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .main-wrapper {
   /* Genral style for wrappers here */
-}
-
-.wrapper--auth {
   display: flex;
   min-height: 100vh;
 }
 
-.auth__sidebar {
+.content-wrapper {
+  flex-grow: 2;
+}
+
+.sidebar {
   flex-basis: 30%;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.auth__sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -50,12 +61,42 @@ nav {
   color: var(--white);
 }
 
+.menu {
+  background-color: #FFFFFF;
+  width: 70%;
+  margin-top: 3rem;
+  padding-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+  -webkit-box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)!important;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)!important;
+}
+
+.menu li {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 1rem 1rem;
+  cursor: pointer;
+}
+
+.menu li.active {
+  border-left: 3px solid var(--primary);
+  background-color: var(--white);
+}
+
+.menu li:hover {
+  background-color: var(--hover);
+  color: #FFFFFF;
+}
+
+
+
 .auth__sidebar * {
   color: var(--white);
 }
 
 .auth__body {
-  flex-grow: 2;
   display: flex;
 }
 
@@ -64,7 +105,7 @@ nav {
   margin: 0;
 }
 
-.form-wrapper input[type="submit"] {
+.form-wrapper input[type="submit"], .form-wrapper button {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -75,7 +116,7 @@ nav {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 400px;
+  min-height: 600px;
   font-size: 1.35rem;
   line-height: 1.5;
 }
@@ -105,6 +146,10 @@ nav {
   min-height: 75%;
 }
 
+#form--login {
+  min-height: 400px;
+}
+
 
 .logo {
   color: #FFAF30;
@@ -115,11 +160,11 @@ nav {
   text-transform: uppercase;
 }
 
-input[type="text"], input[type="password"], input[type="email"]{
-  width: 100%;
-  display: block;
-  padding: 0.6rem 0.8rem;
-  font-size: 1.5rem;
+select, input[type="text"], input[type="password"], input[type="email"], textarea {
+  width: 95%;
+  font-size: 24px;
+  line-height: 1.5;
+  padding: .25em .5em;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #F4F4F4;
@@ -145,6 +190,12 @@ input[type="submit"], button {
   background-color: var(--secondary);
 }
 
+.form--newrequest {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
 
 
 
@@ -158,31 +209,10 @@ input[type="submit"], button {
   h1, .heading {
     font-size: 32px;
   }
-
-  input[type="text"], input[type="password"], input[type="email"]{
-    padding: 0.6rem 0.8rem;
-    font-size: 1rem;
-  }
-
+  
   #register--wrapper {
     height: 1200px;
   }
-
-  #form--register {
-    height: 650px;
-  }
-
-
-  .row-wrapper {
-    flex-direction: column;
-  }
-
-  .row-wrapper * {
-    margin-top: 0.15rem;
-    margin-bottom: 0.15rem;
-  }
-
-
   
    .form--auth {
      width: 80%;
@@ -192,21 +222,38 @@ input[type="submit"], button {
    .form-wrapper p {
     font-size: smaller;
    }
+
+   #form--register {
+    height: 650px;
+  }
+
+
   
 }
 
 
 
-@media only screen and (min-width: 601px) {
- /*style for tab*/
-  
+@media only screen and (max-width: 993px) {
+
+  .row-wrapper {
+    flex-direction: column;
+  }
+
+  .row-wrapper * {
+    margin-top: 0.15rem;
+    margin-bottom: 0.15rem;
+  }
+  select, input[type="text"], input[type="password"], input[type="email"], textarea{
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+  }
+
+  .form--newrequest {
+    width: 95%;
+  }
 }
 
-@media only screen and (min-width: 993px) {
-
-}
-
-@media only screen and (min-width: 1201px) {
+@media only screen and (max-width: 1201px) {
 
   /*Style for extra large screen*/
 

@@ -258,7 +258,7 @@ input[type="submit"], button {
   border-radius: .25rem;
 }
 
-.btn--secondary {
+.btn--primary {
   background-color: var(--secondary);
   border-color: var(--secondary);
   color: var(--white);
@@ -267,7 +267,7 @@ input[type="submit"], button {
   padding-bottom: .35rem;
 }
 
-.btn--secondary:hover {
+.btn--primary:hover {
   background-color: var(--secondary);
 }
 

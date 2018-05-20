@@ -8,7 +8,7 @@
     "pretest": "eslint --ignore-path .gitignore .",
     "serve": "node dist/index.js",
     "start": "nodemon lib/index.js --exec babel-node",
-    "test": "mocha tests --compilers js:babel-register",
+    "test": "mocha tests --compilers js:babel-register --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },

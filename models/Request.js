@@ -33,8 +33,12 @@ class Request {
   }
 
   static findById(id) {
-    const thisRequest = requests.find(request => request.id === id);
+    const thisRequest = requests.find(request => request.id === parseInt(id, 10));
     return new Request(thisRequest);
+  }
+
+  static findOne(id) {
+    return requests.find(request => request.id === id);
   }
 
   update(properties) {

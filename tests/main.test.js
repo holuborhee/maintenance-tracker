@@ -21,7 +21,7 @@ describe('Routes', () => {
     });
 
     describe('POST', () => {
-      it('should return return status of 200', (done) => {
+      it('should return return status of 201', (done) => {
         chai.request(app)
           .post('/users/requests')
           .end((err, res) => {
@@ -61,7 +61,7 @@ describe('Routes', () => {
 describe('Request Model', () => {
   describe('findAll', () => {
     it('should return all requests', (done) => {
-      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(4);
+      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(5);
       done();
     });
   });
@@ -73,12 +73,12 @@ describe('Request Model', () => {
       newRequest = Request.create({
         id: 2, title: 'Noble Computers', description: '', date: '', address: '', urgency: 1, status: 1, user: 1,
       });
-      expect(newRequest.id).to.equal(5);
+      expect(newRequest.id).to.equal(6);
       done();
     });
 
     it('should increase length of requests array', (done) => {
-      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(5);
+      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(6);
       done();
     });
   });

@@ -1,12 +1,12 @@
 import db from '../db';
 
-const { request } = db;
+const { requests } = db;
 class Request {
   constructor(currRequest) {
-    this.currId = currRequest.id;
+    this.id = currRequest.id;
   }
   static findAll() {
-    return request;
+    return requests;
   }
 
   static create() {
@@ -14,16 +14,18 @@ class Request {
   }
 
   static findById(id) {
-    const thisRequest = request.find(() => request.id === id);
+    const thisRequest = requests.find(request => request.id === id);
     return new Request(thisRequest);
   }
 
   update(props) {
-    const thisRequest = request.find(() => request.id === this.currId);
+    const thisRequest = requests.find(request => request.id === this.id);
 
     Object.keys(thisRequest).forEach((key) => {
       if (key !== 'id') { thisRequest[key] = props[key]; }
     });
+
+    return thisRequest;
   }
 }
 

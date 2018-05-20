@@ -2,7 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { describe, it } from 'mocha';
 import app from '../lib/index';
-
+import Request from '../models/Request';
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -58,3 +58,50 @@ describe('Routes', () => {
   });
 });
 
+describe('Request Model', () => {
+  describe('findAll', () => {
+    it('should return all requests', (done) => {
+      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(4);
+      done();
+    });
+  });
+
+  describe('create', () => {
+    const newRequest = Request.create({
+      id: 2, title: 'Noble Computers', description: '', date: '', address: '', urgency: 1, status: 1, user: 1,
+    });
+
+    it('should return a new request', (done) => {
+      expect(newRequest.id).to.equal(5);
+      done();
+    });
+
+    it('should increase length of requests array', (done) => {
+      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(5);
+      done();
+    });
+  });
+
+  const returnedRequest = Request.findById(1);
+  describe('findById', () => {
+    it('should return the corresponding request', (done) => {
+      expect(returnedRequest).to.be.an.instanceOf(Request);
+      expect(returnedRequest.id).to.equal(1);
+      done();
+    });
+  });
+
+  describe('update', () => {
+    it('should change the value of chosen request', (done) => {
+      const modified = returnedRequest.update({ title: 'I am battling with my refridgerator' });
+      expect(modified.title).to.be.a('string').and.to.equal('I am battling with my refridgerator');
+      done();
+    });
+
+    it('should not change the id of request', (done) => {
+      const modified = returnedRequest.update({ id: 5 });
+      expect(modified.id).to.be.finite.and.to.equal(1);
+      done();
+    });
+  });
+});

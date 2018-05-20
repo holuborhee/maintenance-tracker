@@ -67,11 +67,12 @@ describe('Request Model', () => {
   });
 
   describe('create', () => {
-    const newRequest = Request.create({
-      id: 2, title: 'Noble Computers', description: '', date: '', address: '', urgency: 1, status: 1, user: 1,
-    });
+    let newRequest;
 
     it('should return a new request', (done) => {
+      newRequest = Request.create({
+        id: 2, title: 'Noble Computers', description: '', date: '', address: '', urgency: 1, status: 1, user: 1,
+      });
       expect(newRequest.id).to.equal(5);
       done();
     });

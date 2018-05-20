@@ -12,7 +12,7 @@ describe('Routes', () => {
     describe('GET', () => {
       it('should return return status of 200', (done) => {
         chai.request(app)
-          .get('/users/requests')
+          .get('/api/v1/users/requests')
           .end((err, res) => {
             expect(res).to.have.status(200);
             done();
@@ -23,7 +23,7 @@ describe('Routes', () => {
     describe('POST', () => {
       it('should return return status of 201', (done) => {
         chai.request(app)
-          .post('/users/requests')
+          .post('/api/v1/users/requests')
           .end((err, res) => {
             expect(res).to.have.status(201);
             done();
@@ -37,7 +37,7 @@ describe('Routes', () => {
     describe('GET', () => {
       it('should return return status of 200', (done) => {
         chai.request(app)
-          .get('/users/requests/1')
+          .get('/api/v1/users/requests/1')
           .end((err, res) => {
             expect(res).to.have.status(200);
             done();
@@ -48,7 +48,7 @@ describe('Routes', () => {
     describe('PUT', () => {
       it('should return return status of 200', (done) => {
         chai.request(app)
-          .put('/users/requests/2')
+          .put('/api/v1/users/requests/2')
           .end((err, res) => {
             expect(res).to.have.status(200);
             done();

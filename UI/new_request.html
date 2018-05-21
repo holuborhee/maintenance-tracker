@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traka | New Request</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<nav>
+  <h4 class="logo">Traka</h4>
+</nav>
+<main class="main-wrapper">
+  <div class="sidebar">
+  	<ul class="menu">
+  		<li class="active"><a href="new_request.html">New Request</a></li>
+  		<li><a href="all_requests.html">All Requests</a></li>
+  		<li><a href="#">Resolved Requests</a></li>
+  		<li>Pending Requests</li>
+  		<li>Rejected Requests</li>
+  	</ul>
+  </div>
+
+  <div class="content-wrapper">
+  	<h1 class="page-title">New Request</h1>
+	<form class="form-wrapper form--newrequest">
+	  <input type="text" placeholder="Title your request" name="">
+
+	  <textarea rows="8">Give better description here... </textarea>
+	  <div class="group-input">
+	    <label for="email">How urgent is this request?</label>
+		  <select>
+		  	<option>less than 24 hours</option>
+		  	<option>1 to 3 days</option>
+		  	<option>Not more than a week</option>
+		  </select>
+	 </div>
+	 <button class="btn--primary">Submit Request</button>
+	</form>
+  </div>
+</main>
+</body>
+</html>

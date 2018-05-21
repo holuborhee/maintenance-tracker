@@ -9,24 +9,31 @@
 	}
   </style>
 </head>
-<body class="">
-<main class="flex flex-wrap h-100">
-  <div class="s13 m4 l3 bg-primary flex justify-content-space-evenly flex-column pb5 align-items-center">
+<body>
+<main class="main-wrapper wrapper--auth">
+
+  <div class="sidebar auth__sidebar">
   	<h4 class="logo">Traka</h4>
   	<h1>LOG IN</h1>
   	<a href="index.html">Back to homepage</a>
   </div>
-  <div class="flex s13 m9 l10 bg-white">
-	<form class="mxy-auto m8 l6 flex justify-content-space-between flex-column">
-	  <input type="text" name="" placeholder="Email here" class="">
-	  <input type="password" name="" placeholder="Password here" class="">
-	  <input type="submit" name="" value="Login" class="mx-auto m6 l4 btn-primary block py2">
 
-	  <p class="align-self-end">Are you new here? <a href="register.html">Click here to register</p>
+  <div class="content-wrapper auth__body">
+	<form class="form-wrapper form--auth" id="form--login">
+
+	 <div class="group-input">
+      <label for="email">Email</label>
+	  <input type="text" id="email" name="" placeholder="Your registered email here">
+	 </div>
+	 <div class="group-input">
+	  <label for="password">Password</label>
+	  <input id="password" type="password" name="" placeholder="Your Password here">
+	</div>
+	  <input type="submit" name="" value="Login" class="btn--primary">
+
+	  <p>Are you new here? <a href="register.html">Click here to register</a></p>
 	</form>
   </div>
 </main>
-<script>
-</script>
 </body>
 </html>

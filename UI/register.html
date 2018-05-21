@@ -10,41 +10,51 @@
 		}
 	</style>
 </head>
-<body class="">
-<main class="flex flex-wrap h-100">
-  <div class="s13 m4 l3 bg-primary flex justify-content-space-evenly flex-column pb5 align-items-center">
-  	<h4 class="logo">Traka</h4>
-  	<h1>SIGN UP</h1>
-  	<a href="index.html">Back to homepage</a>
+<body>
+<main class="main-wrapper wrapper--auth" id="register--wrapper">
+  <div class="sidebar auth__sidebar">
+    <h4 class="logo">Traka</h4>
+    <h1>SIGN UP</h1>
+    <a href="index.html">Back to homepage</a>
   </div>
-  <div class="flex s13 m9 l10 bg-white">
-		<form class="mxy-auto m11 l9 flex justify-content-space-between flex-wrap">
-      <span class="m6 my3">
-        <input type="text" name="" placeholder="First name" class="">
-      </span>
-      <span class="m6 my3">
-       <input type="text" name="" placeholder="Last name" class="">
-      </span>
-
-      <span class="m6 my3">
-        <input type="email" name="" placeholder="Email here" class="">
-      </span>
-      <span class="m6 my3">
-       <input type="text" name="" placeholder="Phone" class="">
-      </span>
-      <span class="m6 my3">
-       <input type="password" name="" placeholder="Password" class="">
-      </span>
-      <span class="m6 my3">
-       <input type="password" name="" placeholder="Confirm Password" class="">
-      </span>
-
-      <span class="m13 my3">
-        <input type="text" name="" placeholder="Address here" class="">
-      </span>
-		  
+  <div class="content-wrapper auth__body">
+    <!---->
+		<form class="form-wrapper form--auth" id="form--register">
+      <h1>Create your free account</h1>
+      <div class="row-wrapper">
+        <span>
+          <input type="text" name="" placeholder="First name" class="">
+        </span>
+        <span>
+          <input type="text" name="" placeholder="Last name" class="">
+        </span>
+      </div>
       
-    <input type="submit" name="" value="Register" class="mx-auto m8 l6 btn-primary block py2 my3">
+       
+
+      <div class="row-wrapper">
+        <span>
+          <input type="email" name="" placeholder="Email here" class="">
+        </span>
+        <span>
+          <input type="text" name="" placeholder="Phone" class="">
+        </span>  
+      </div>
+        
+      <div class="row-wrapper">
+        <span>
+          <input type="password" name="" placeholder="Password" class="">
+        </span>
+        <span>  
+          <input type="password" name="" placeholder="Confirm Password" class=""> 
+        </span>   
+      </div>
+       
+      <div >
+        <input type="text" name="" placeholder="Address here" class="">
+      </div>
+
+      <input type="submit" name="" value="Register" class="btn--primary">
 
       <p class="align-self-end w-100 text-right">Already have an account? <a href="login.html">Click here to login</a></p>
 		  

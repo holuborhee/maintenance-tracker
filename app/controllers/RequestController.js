@@ -6,18 +6,18 @@ class RequestController {
   }
 
   static create(req, res) {
-    const requests = Request.create(req.body);
-    return res.status(201).send({ status: 'success', data: { requests } });
+    const request = Request.create(req.body);
+    return res.status(201).send({ status: 'success', data: { request } });
   }
 
   static update(req, res) {
-    let request = Request.findById(req.params.requestId);
+    let { request } = req;
     request = request.update(req.body);
     res.send({ status: 'success', data: { request } });
   }
 
   static show(req, res) {
-    return res.send({ status: 'success', data: { request: Request.findOne(req.params.requestId) } });
+    return res.send({ status: 'success', data: { request: req.request } });
   }
 }
 

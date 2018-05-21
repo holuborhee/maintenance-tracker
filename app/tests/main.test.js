@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { describe, it } from 'mocha';
-import app from '../lib/index';
+import app from '../../lib/index';
 import Request from '../models/Request';
 
 const { expect } = chai;

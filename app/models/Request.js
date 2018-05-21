@@ -1,4 +1,4 @@
-import db from '../db';
+import db from '../../lib/db';
 
 const { requests } = db;
 class Request {

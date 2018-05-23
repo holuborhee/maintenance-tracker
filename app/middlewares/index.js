@@ -2,6 +2,7 @@ import validator from 'validator';
 
 import Helper from '../../lib/Helper';
 import Request from '../models/Request';
+import User from '../models/User';
 
 
 class Middleware {
@@ -33,6 +34,11 @@ class Middleware {
 
   static checkRequestValue(req, res, next) {
     if (Object.keys(req.body).length === 0) { return res.status(422).send({ status: 'error', message: 'Server cannot understand this request' }); }
+    try {
+      req.user = User.findById(req.body.user);
+    } catch (err) {
+      return res.status(422).send({ status: 'fail', data: { user: 'This user cannot be found on the server' } });
+    }
     const data = Helper.validateClassProperties('Request', req.body);
     if (data === true) { next(); } else { return res.status(422).send({ status: 'fail', data }); }
   }

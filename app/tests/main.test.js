@@ -28,7 +28,6 @@ describe('Routes', () => {
             title: 'This is the title', description: 'This is the description', date: '09-08-2019', address: 'this is the address', urgency: 1, status: 2, user: 1,
           })
           .end((err, res) => {
-            console.log(res.body.data);
             expect(res).to.have.status(201);
             expect(res.body.status).to.equal('success');
             expect(res.body.data.request).to.be.an('object').that.has.all.keys('id', 'title', 'description', 'date', 'address', 'urgency', 'status', 'user');
@@ -60,6 +59,20 @@ describe('Routes', () => {
             expect(res).to.have.status(422);
             expect(res.body.status).to.equal('fail');
             expect(res.body.data).to.be.an('object').that.has.all.keys('urgency', 'status');
+            done();
+          });
+      });
+
+      it('should return 422 for user not found', (done) => {
+        chai.request(app)
+          .post('/api/v1/users/requests')
+          .send({
+            title: 'This is the title', description: 'This is the description', date: '09-08-2019', address: 'this is the address', urgency: 'dags', status: 'sdsdsd', user: 100,
+          })
+          .end((err, res) => {
+            expect(res).to.have.status(422);
+            expect(res.body.status).to.equal('fail');
+            expect(res.body.data).to.be.an('object').that.has.all.keys('user');
             done();
           });
       });
@@ -108,10 +121,23 @@ describe('Routes', () => {
     });
 
     describe('PUT', () => {
-      it('should return status of 200', (done) => {
+      it('should return status of 422', (done) => {
         chai.request(app)
           .put('/api/v1/users/requests/2')
           .end((err, res) => {
+            expect(res).to.have.status(422);
+            done();
+          });
+      });
+
+      it('should return status of 200', (done) => {
+        chai.request(app)
+          .put('/api/v1/users/requests/2')
+          .send({
+            title: 'This is a new Title', user: 1,
+          })
+          .end((err, res) => {
+            expect(res.body.data.request.title).to.equal('This is a new Title');
             expect(res).to.have.status(200);
             done();
           });

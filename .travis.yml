@@ -5,8 +5,6 @@ install:
   - npm install
 services:
   - postgresql
-script:
-  - npm test
 env:
   - NODE_ENV=test
 cache:
@@ -15,5 +13,7 @@ cache:
 before_script:
   - createuser olubori -s -U postgres
   - createdb traka_test --username=olubori
+  - npm run migrate
+  - npm run seed
 after_success :
   - npm run coverage

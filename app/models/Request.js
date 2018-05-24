@@ -1,6 +1,3 @@
-import db from '../../lib/db';
-
-const { requests } = db;
 class Request {
   constructor(currRequest) {
     this.id = currRequest.id;

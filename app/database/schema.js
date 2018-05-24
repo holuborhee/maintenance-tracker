@@ -1,32 +1,12 @@
-const db = {
+const schema = {
   users: null,
   requests: null,
-  status: [{
-    id: 1,
-    title: 'Unresolved',
-  }, {
-    id: 2,
-    title: 'Resolved',
-  }, {
-    id: 3,
-    title: 'Rejected',
-  }],
-  urgency: [{
-    id: 1,
-    title: '0 - 24 hours',
-  }, {
-    id: 2,
-    title: '1 - 3 days',
-  }, {
-    id: 3,
-    title: '1 week or less',
-  }],
   classProperties: null,
 
 };
 
 
-db.users = [{
+schema.users = [{
   id: 1,
   name: 'Olubori David',
   phone: '08164488989',
@@ -60,7 +40,7 @@ db.users = [{
 },
 ];
 
-db.requests = [{
+schema.requests = [{
   id: 1,
   title: 'I have a faulty refridgerator',
   description: 'My refridgerator developed fault this mornign while, beacause of a high voltage from the PHCN, need a quick fix for it. Thanks',
@@ -105,7 +85,7 @@ db.requests = [{
 },
 ];
 
-db.classProperties = {
+schema.classProperties = {
   Request: {
     title: {
       type: 'alphaNumeric',
@@ -148,4 +128,4 @@ db.classProperties = {
 };
 
 
-export default db;
+export default schema;

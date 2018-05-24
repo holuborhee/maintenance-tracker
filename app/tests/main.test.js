@@ -1,8 +1,10 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import bcrypt from 'bcrypt';
 import { describe, it } from 'mocha';
-import app from '../../lib/index';
-import Request from '../models/Request';
+import app from '../../server';
+import { Request, User } from '../models';
+
 
 const { expect } = chai;
 chai.use(chaiHttp);
@@ -202,6 +204,21 @@ describe('Request Model', () => {
       const modified = returnedRequest.update({ id: 5 });
       expect(modified.id).to.be.finite.and.to.equal(1);
       done();
+    });
+  });
+});
+
+
+describe('Model User', () => {
+  describe('create()', () => {
+    it('should return an instance Of User', (done) => {
+      User.create({
+        name: 'John', phone: '08164488989', email: 'daveholuborhee@gmail.com', password: `${bcrypt.hashSync('password', 10)}`,
+      })
+        .then((user) => {
+          expect(user).to.be.an.instanceOf(User);
+          done();
+        });
     });
   });
 });

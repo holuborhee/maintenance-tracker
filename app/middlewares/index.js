@@ -1,8 +1,8 @@
 import validator from 'validator';
 
-import Helper from '../../lib/Helper';
+import Helper from '../lib/Helper';
 import Request from '../models/Request';
-import User from '../models/User';
+import { User } from '../models';
 
 
 class Middleware {

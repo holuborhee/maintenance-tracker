@@ -1,5 +1,7 @@
+import validator from 'validator';
 import bcrypt from 'bcrypt';
 import { User } from '../models';
+
 
 /**
   * Authentication Controller
@@ -18,23 +20,19 @@ class AuthController {
     let user;
     try {
       user = await User.create({
-        name: req.body.name, phone: req.body.phone.trim(), email: req.body.email.trim().toLowerCase(), password: `${bcrypt.hashSync(req.body.password, 10)}`,
+        firstName: validator.escape(req.body.firstName),
+        lastName: validator.escape(req.body.lastName),
+        phone: validator.trim(req.body.phone),
+        email: validator.normalizeEmail(req.body.email),
+        password: `${bcrypt.hashSync(req.body.password, 10)}`,
+        address: validator.escape(req.body.address),
       });
     } catch (err) {
-      res.status(500).send({ status: 'error', message: err });
+      res.status(500).send({ status: 'error', message: `Something went wrong while trying to register ${err}` });
     }
 
-    const {
-      id, name, phone, email,
-    } = user;
-    return res.status(201).send({
-      status: 'success',
-      data: {
-        user: {
-          id, name, phone, email,
-        },
-      },
-    });
+    delete user.password;
+    return res.status(201).send({ status: 'success', data: { user } });
   }
 }
 

@@ -1,15 +1,41 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import bcrypt from 'bcrypt';
 import { describe, it } from 'mocha';
 import app from '../../server';
-import { Request, User } from '../models';
 
 
 const { expect } = chai;
 chai.use(chaiHttp);
 
-describe('Routes', () => {
+
+describe('api/v1/auth/signup', () => {
+  describe('POST', () => {
+    it('should return status of 201 for good supplied values', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstName: 'John',
+          lastName: 'David',
+          phone: '08164488989',
+          email: 'daveholuborhee@gmail.com',
+          password: 'password',
+          address: 'any addrress',
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(201);
+          expect(res.body.status).to.equal('success');
+          expect(res.body.data.user).to.be.an('object').that.has.all.keys('id', 'firstName', 'lastName', 'phone', 'email', 'address', 'isAdmin', 'createdAt', 'updatedAt');
+          done();
+        });
+    });
+
+    it('should not have password');
+    it('should return 400');
+    it('should return 422');
+  });
+});
+
+describe.skip('Routes', () => {
   describe('/users/requests', () => {
     describe('GET', () => {
       it('should return status of 200', (done) => {
@@ -144,81 +170,6 @@ describe('Routes', () => {
             done();
           });
       });
-    });
-  });
-});
-
-describe('Request Model', () => {
-  describe('findAll', () => {
-    it('should return all requests', (done) => {
-      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(5);
-      done();
-    });
-  });
-
-  describe('create', () => {
-    let newRequest;
-
-    it('should return a new request', (done) => {
-      newRequest = Request.create({
-        id: 2, title: 'Noble Computers', description: '', date: '', address: '', urgency: 1, status: 1, user: 1,
-      });
-      expect(newRequest.id).to.equal(6);
-      done();
-    });
-
-    it('should ignore ID value in request body', (done) => {
-      expect(Request.findAll()).to.be.an('array').that.has.lengthOf(6);
-      done();
-    });
-
-    it('should increase length of requests array', (done) => {
-      expect(newRequest.id).not.to.equal(2);
-      done();
-    });
-  });
-
-  let returnedRequest;
-  describe('findById', () => {
-    it('should return the corresponding request', (done) => {
-      returnedRequest = Request.findById(1);
-      expect(returnedRequest).to.be.an.instanceOf(Request);
-      expect(returnedRequest.id).to.equal(1);
-      done();
-    });
-
-    it('should throw an error for request not found', (done) => {
-      expect(() => Request.findById(10)).to.throw();
-      done();
-    });
-  });
-
-  describe('update', () => {
-    it('should change the value of chosen request', (done) => {
-      const modified = returnedRequest.update({ title: 'I am battling with my refridgerator' });
-      expect(modified.title).to.be.a('string').and.to.equal('I am battling with my refridgerator');
-      done();
-    });
-
-    it('should not change the id of request', (done) => {
-      const modified = returnedRequest.update({ id: 5 });
-      expect(modified.id).to.be.finite.and.to.equal(1);
-      done();
-    });
-  });
-});
-
-
-describe('Model User', () => {
-  describe('create()', () => {
-    it('should return an instance Of User', (done) => {
-      User.create({
-        name: 'John', phone: '08164488989', email: 'daveholuborhee@gmail.com', password: `${bcrypt.hashSync('password', 10)}`,
-      })
-        .then((user) => {
-          expect(user).to.be.an.instanceOf(User);
-          done();
-        });
     });
   });
 });

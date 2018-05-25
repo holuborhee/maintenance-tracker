@@ -1,8 +1,7 @@
 import validator from 'validator';
 
-import Helper from '../lib/Helper';
-import Request from '../models/Request';
-import { User } from '../models';
+import Helper from '../Helper';
+import { Request, User } from '../models';
 
 
 class Middleware {
@@ -28,12 +27,23 @@ class Middleware {
     if (allInRequest === true) {
       next();
     } else {
-      return res.status(422).send(allInRequest);
+      return res.status(400).send(allInRequest);
     }
   }
 
+  static checkRegisterUser(req, res, next) {
+    const required = ['firstName', 'lastName', 'phone', 'email', 'password', 'address'];
+    const allInRequest = Helper.validateRequiredInRequest(req.body, required);
+    if (allInRequest === true) {
+      const data = Middleware.checkUserValue(req.body);
+      if (data === true) { next(); } else { return res.status(422).send({ status: 'fail', data }); }
+      return next();
+    }
+    return res.status(400).send(allInRequest);
+  }
+
   static checkRequestValue(req, res, next) {
-    if (Object.keys(req.body).length === 0) { return res.status(422).send({ status: 'error', message: 'Server cannot understand this request' }); }
+    if (Object.keys(req.body).length === 0) { return res.status(400).send({ status: 'error', message: 'Server cannot understand this request' }); }
     try {
       req.user = User.findById(req.body.user);
     } catch (err) {
@@ -41,6 +51,11 @@ class Middleware {
     }
     const data = Helper.validateClassProperties('Request', req.body);
     if (data === true) { next(); } else { return res.status(422).send({ status: 'fail', data }); }
+  }
+
+  static checkUserValue(body) {
+    const data = Helper.validateClassProperties('User', body);
+    return data;
   }
 }
 

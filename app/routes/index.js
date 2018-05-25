@@ -18,7 +18,7 @@ routes.route('/users/requests/:requestId')
   );
 
 
-routes.post('/auth/signup', AuthController.register);
+routes.post('/auth/signup', Middleware.checkRegisterUser, AuthController.register);
 
 // routes.post('/auth/login', AuthController.login);
 

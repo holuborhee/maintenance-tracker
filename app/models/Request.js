@@ -1,5 +1,8 @@
+// import SQL from '../database/SQL';
+
+
 class Request {
-  constructor(currRequest) {
+  /* constructor(currRequest) {
     this.id = currRequest.id;
     this.title = currRequest.title;
     this.description = currRequest.description;
@@ -11,7 +14,7 @@ class Request {
   }
 
   static findAll() {
-    return requests;
+    // return requests;
   }
 
   static create(properties) {
@@ -32,7 +35,7 @@ class Request {
 
     newRequest.id = requests.length + 1;
 
-    requests.push(newRequest);
+    // requests.push(newRequest);
 
     return newRequest;
   }
@@ -53,7 +56,7 @@ class Request {
     });
 
     return thisRequest;
-  }
+  } */
 }
 
 export default Request;

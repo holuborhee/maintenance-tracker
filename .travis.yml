@@ -5,6 +5,8 @@ install:
   - npm install
 services:
   - postgresql
+script:
+  - npm test
 env:
   - NODE_ENV=test
 cache:

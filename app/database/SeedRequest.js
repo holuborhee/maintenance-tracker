@@ -1,7 +1,6 @@
-import { Request } from '../models';
+import faker from 'faker';
 import SQL from './SQL';
 
-const faker = require('faker');
 
 const length = Array(11).fill().map((x, i) => i + 1);
 
@@ -13,39 +12,40 @@ const requests = length.map(len => ({
   current_status: 'RESOLVED',
   requested_on: new Date().toISOString(),
   request_urgency: 24,
-  user_id: 4,
+  user_id: len,
   created_at: new Date().toISOString(),
   updated_at: new Date().toISOString(),
 }));
 
 
 class SeedRequest {
-  static async up() {
-    function buildStatement(insert, rows) {
-      const params = [];
-      const chunks = [];
-      rows.forEach((row) => {
-        const valueClause = [];
-        Object.keys(row).forEach((p) => {
-          params.push(row[p]);
-          valueClause.push(`$${params.length}`);
-        });
-        chunks.push(`(${valueClause.join(', ')})`);
+  static buildStatement(insert, rows) {
+    const params = [];
+    const chunks = [];
+    rows.forEach((row) => {
+      const valueClause = [];
+      Object.keys(row).forEach((p) => {
+        params.push(row[p]);
+        valueClause.push(`$${params.length}`);
       });
-      return {
-        text: insert + chunks.join(', '),
-        values: params,
-      };
-    }
+      chunks.push(`(${valueClause.join(', ')})`);
+    });
+    return {
+      text: insert + chunks.join(', '),
+      values: params,
+    };
+  }
+  static async up() {
     try {
-      await SQL.query(buildStatement('INSERT INTO requests (title, description, address, current_status, requested_on, request_urgency, user_id, created_at, updated_at) VALUES ', requests));
+      const res = await SQL.query(SeedRequest.buildStatement('INSERT INTO requests (title, description, address, current_status, requested_on, request_urgency, user_id, created_at, updated_at) VALUES ', requests));
+      return res;
     } catch (ex) {
-      console.log(`Something went wrong somewhere ${ex}`);
+      return `Something went wrong somewhere ${ex}`;
     }
   }
 
   static down() {
-
+    // Implement clear Request Table here
   }
 }
 

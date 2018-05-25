@@ -2,13 +2,13 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import chokidar from 'chokidar';
 import dotenv from 'dotenv';
+import logger from 'morgan';
 
 import routes from './app/routes/index';
 
 
 dotenv.config();
 
-console.log(process.env);
 const app = express();
 
 
@@ -30,7 +30,12 @@ if (!production) {
 
 const port = process.env.PORT || 8080;
 
+app.use(logger('dev'));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.text());
+// app.use(bodyParser.json({ type: 'application/json' }));
 
 app.use('/api/v1', routes);
 

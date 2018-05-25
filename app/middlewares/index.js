@@ -36,7 +36,7 @@ class Middleware {
     const allInRequest = Helper.validateRequiredInRequest(req.body, required);
     if (allInRequest === true) {
       const data = Middleware.checkUserValue(req.body);
-      if (data === true) { next(); } else { return res.status(422).send({ status: 'fail', data }); }
+      if (data === true) { return next(); } return res.status(422).send({ status: 'fail', data });
       return next();
     }
     return res.status(400).send(allInRequest);

@@ -1,5 +1,7 @@
 import validator from 'validator';
 import schema from './database/schema';
+// import { User } from './models';
+import SQL from './database/SQL';
 
 /* . This file contains functions of general use to the whole of the app, */
 
@@ -59,6 +61,27 @@ class Helper {
     Object.keys(properties).forEach((key) => {
       if (!this.testType(properties[key], User[key].type)) { data[key] = `Type of ${key} is incompatitble with required type`; }
     });
+
+
+    /* try {
+      const results = await SQL.query(`SELECT * FROM users WHERE email = ${properties.email}`);
+
+      if (results.rows.length > 0) {
+        data.email = 'Email already exist';
+      }
+    } catch (err) {
+      data = { error: `something went wrong${err}` };
+    }
+
+    try {
+      const results = await SQL.query(`SELECT * FROM users WHERE phone = ${properties.phone}`);
+      console.log(results);
+      if (results.rows.length > 0) {
+        data.phone = 'Phonealready exist';
+      }
+    } catch (err) {
+      data = { error: `something went wrong${err}` };
+    } */
 
     return Object.keys(data).length === 0 ? true : data;
   }

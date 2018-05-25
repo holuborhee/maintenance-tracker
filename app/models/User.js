@@ -46,6 +46,35 @@ class User {
       }
     });
   }
+
+  static find(email) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const results = await SQL.query(`SELECT * FROM users WHERE email = ${email}`);
+      } catch (err) {
+        reject(err);
+      }
+      if (results.rows.length > 0) {
+        const users = results.rows.map(res => new User(res));
+        resolve(users);
+      } else { resolve(false); }
+    });
+  }
+
+
+  static findByPhone(phone) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const results = await SQL.query(`SELECT * FROM users WHERE phone = ${phone}`);
+      } catch (err) {
+        reject(err);
+      }
+      if (results.rows.length > 0) {
+        const users = results.rows.map(res => new User(res));
+        resolve(users);
+      } else { resolve(false); }
+    });
+  }
 /*
   static findById(id) {
     const thisUser = users.find(user => user.id === parseInt(id, 10));

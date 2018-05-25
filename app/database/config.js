@@ -10,10 +10,7 @@ const config = {
     host: '127.0.0.1',
   },
   test: {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE_TEST,
-    host: '127.0.0.1',
   },
   production: {
     connectionString: process.env.DATABASE_URL,

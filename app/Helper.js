@@ -1,7 +1,6 @@
 import validator from 'validator';
 import schema from './database/schema';
-// import { User } from './models';
-import SQL from './database/SQL';
+
 
 /* . This file contains functions of general use to the whole of the app, */
 

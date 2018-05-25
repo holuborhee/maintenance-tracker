@@ -1,5 +1,7 @@
 import validator from 'validator';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 import { User } from '../models';
 
 
@@ -33,6 +35,29 @@ class AuthController {
 
     delete user.password;
     return res.status(201).send({ status: 'success', data: { user } });
+  }
+
+  static async login(req, res) {
+    let user;
+    try {
+      const users = await User.getByEmail(validator.normalizeEmail(req.body.email));
+      if (users.length > 0) {
+        [user] = users;
+        if (!AuthController.comparePassword(req.body.password, user.password)) {
+          res.status(401).send({ status: 'error', message: 'You do not have permission to login' });
+        }
+      }
+    } catch (err) {
+      res.status(500).send({ status: 'error', message: `Something went wrong while trying to login ${err}` });
+    }
+
+    delete user.password;
+    const token = jwt.sign({ id: user.id }, process.env.JWT_KEY, { expiresIn: '1h' });
+    return res.status(200).send({ status: 'success', data: { token, user } });
+  }
+
+  static comparePassword(reqPassword, dbPassword) {
+    return bcrypt.compareSync(reqPassword, dbPassword);
   }
 }
 

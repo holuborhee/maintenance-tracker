@@ -10,9 +10,10 @@ const { expect } = chai;
 
 after(async () => {
   try {
-    await SQL.query('DELETE FROM requests; DELETE FROM users;');
+    const results = await SQL.query('DELETE FROM requests; DELETE FROM users;');
+    return results;
   } catch (ex) {
-    console.log(ex);
+    return ex;
   }
 });
 

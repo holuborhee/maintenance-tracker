@@ -1,4 +1,5 @@
 import SQL from '../database/SQL';
+import Request from './Request';
 
 
 const query = { text: null, values: null };
@@ -34,6 +35,21 @@ class User {
     });
   }
 
+  static getByEmail(email) {
+    const sqlQuery = `SELECT * FROM users WHERE email = '${email}'`;
+    return new Promise(async (resolve, reject) => {
+      try {
+        const results = await SQL.query(sqlQuery);
+
+        const users = results.rows.map(res => new User(res));
+
+        resolve(users);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
 
   static all() {
     return new Promise(async (resolve, reject) => {
@@ -47,43 +63,33 @@ class User {
     });
   }
 
-  static find(email) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const results = await SQL.query(`SELECT * FROM users WHERE email = ${email}`);
-      } catch (err) {
-        reject(err);
-      }
-      if (results.rows.length > 0) {
-        const users = results.rows.map(res => new User(res));
-        resolve(users);
-      } else { resolve(false); }
-    });
+  isAdmin() {
+    return this.isAdmin;
   }
 
-
-  static findByPhone(phone) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const results = await SQL.query(`SELECT * FROM users WHERE phone = ${phone}`);
-      } catch (err) {
-        reject(err);
-      }
-      if (results.rows.length > 0) {
-        const users = results.rows.map(res => new User(res));
-        resolve(users);
-      } else { resolve(false); }
-    });
-  }
-/*
   static findById(id) {
-    const thisUser = users.find(user => user.id === parseInt(id, 10));
-    if (!thisUser) {
-      throw new Error('User resource not found on the server');
-    }
-    return new User(thisUser);
+    return new Promise(async (resolve, reject) => {
+      try {
+        const results = await SQL.query(`SELECT * FROM users WHERE id = ${id}`);
+        const users = results.rows.map(res => new User(res));
+        resolve(users[0]);
+      } catch (err) {
+        reject(err);
+      }
+    });
   }
-*/
+
+  getMyRequests() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const results = await SQL.query(`SELECT * FROM requests WHERE user_id = ${this.id}`);
+        const requests = results.rows.map(res => new Request(res));
+        resolve(requests);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
 }
 
 export default User;

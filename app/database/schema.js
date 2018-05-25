@@ -9,29 +9,24 @@ const schema = {
       type: 'string',
       required: true,
     },
-    date: {
-      type: 'alphaNumeric',
-      maxlength: 7,
-      required: true,
-    },
     address: {
       type: 'alphaNumeric',
       maxlength: 50,
       required: true,
     },
-    urgency: {
+    request_urgency: {
       type: 'int',
       min: 1,
       max: 3,
       required: true,
     },
-    status: {
-      type: 'int',
+    current_status: {
+      type: 'alpha',
       min: 1,
       max: 3,
       required: true,
     },
-    user: {
+    userId: {
       type: 'int',
       min: 1,
       max: 3,

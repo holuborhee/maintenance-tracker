@@ -1,4 +1,5 @@
 import validator from 'validator';
+import jwt from 'jsonwebtoken';
 
 import Helper from '../Helper';
 import { Request, User } from '../models';
@@ -6,12 +7,12 @@ import { Request, User } from '../models';
 
 class Middleware {
   /* eslint consistent-return: "off" */
-  static findOrFail(req, res, next) {
+  static async findOrFail(req, res, next) {
     try {
-      req.request = Request.findById(req.params.requestId);
+      req.request = await Request.findById(req.params.requestId);
       next();
     } catch (err) {
-      return res.status(404).send({ status: 'error', message: 'Requested resource cannot be found on this server' });
+      return res.status(404).send({ status: 'error', message: `Requested resource cannot be found on this server${err}` });
     }
   }
 
@@ -22,7 +23,7 @@ class Middleware {
   }
 
   static checkRequestRequired(req, res, next) {
-    const required = ['title', 'description', 'date', 'address', 'urgency', 'status', 'user'];
+    const required = ['title', 'description'];
     const allInRequest = Helper.validateRequiredInRequest(req.body, required);
     if (allInRequest === true) {
       next();
@@ -37,8 +38,14 @@ class Middleware {
     if (allInRequest === true) {
       const data = Middleware.checkUserValue(req.body);
       if (data === true) { return next(); } return res.status(422).send({ status: 'fail', data });
-      return next();
     }
+    return res.status(400).send(allInRequest);
+  }
+
+  static checkLoginUser(req, res, next) {
+    const required = ['email', 'password'];
+    const allInRequest = Helper.validateRequiredInRequest(req.body, required);
+    if (allInRequest === true) { return next(); }
     return res.status(400).send(allInRequest);
   }
 
@@ -56,6 +63,40 @@ class Middleware {
   static checkUserValue(body) {
     const data = Helper.validateClassProperties('User', body);
     return data;
+  }
+
+  static async isAuthenticated(req, res, next) {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const decoded = jwt.verify(token, process.env.JWT_KEY);
+      req.user = await User.findById(decoded.id);
+      next();
+    } catch (error) {
+      return res.status(401).send({ status: 'error', message: 'You are not authenticated' });
+    }
+  }
+
+  static async adminAuthorized(req, res, next) {
+    if (req.user.isAdmin) {
+      return next();
+    }
+    return res.status(401).send({ status: 'error', message: 'You are not authorized to perform this action' });
+  }
+
+  static async isAuthorized(req, res, next) {
+    if (req.user.isAdmin) {
+      return next();
+    }
+    try {
+      const request = await Request.findById(req.params.requestId);
+      if (request.userId === req.user.id) {
+        return next();
+      }
+    } catch (ex) {
+      return res.status(500).send({ status: 'error', message: 'There was an internal server error' });
+    }
+
+    return res.status(403).send({ status: 'error', message: 'You are not authorized to peform this action' });
   }
 }
 

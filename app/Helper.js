@@ -1,7 +1,7 @@
 import validator from 'validator';
-import db from './db';
+import schema from './database/schema';
 
-const { classProperties } = db;
+
 /* . This file contains functions of general use to the whole of the app, */
 
 class Helper {
@@ -32,6 +32,8 @@ class Helper {
     switch (classname) {
       case 'Request':
         return this.validateRequestProperties(properties);
+      case 'User':
+        return this.validateUserProperties(properties);
       default:
         throw new Error('Class name not recognized');
     }
@@ -40,11 +42,45 @@ class Helper {
   static validateRequestProperties(properties) {
     // Currently only test for type, it will be enhamced to test for legth of value
     // and required using the validateRequiredInrequestFunction
-    const { Request } = classProperties;
+    const { Request } = schema;
     const data = {};
     Object.keys(properties).forEach((key) => {
       if (!this.testType(properties[key], Request[key].type)) { data[key] = `Type of ${key} is incompatitble with required type`; }
     });
+
+    return Object.keys(data).length === 0 ? true : data;
+  }
+
+
+  static validateUserProperties(properties) {
+    // Currently only test for type, it will be enhamced to test for legth of value
+    // and required using the validateRequiredInrequestFunction
+    const { User } = schema;
+    const data = {};
+    Object.keys(properties).forEach((key) => {
+      if (!this.testType(properties[key], User[key].type)) { data[key] = `Type of ${key} is incompatitble with required type`; }
+    });
+
+
+    /* try {
+      const results = await SQL.query(`SELECT * FROM users WHERE email = ${properties.email}`);
+
+      if (results.rows.length > 0) {
+        data.email = 'Email already exist';
+      }
+    } catch (err) {
+      data = { error: `something went wrong${err}` };
+    }
+
+    try {
+      const results = await SQL.query(`SELECT * FROM users WHERE phone = ${properties.phone}`);
+      console.log(results);
+      if (results.rows.length > 0) {
+        data.phone = 'Phonealready exist';
+      }
+    } catch (err) {
+      data = { error: `something went wrong${err}` };
+    } */
 
     return Object.keys(data).length === 0 ? true : data;
   }
@@ -59,11 +95,13 @@ class Helper {
   static testType(value, type) {
     switch (type) {
       case 'alphaNumeric':
-        return /^[a-z\d\-_\s]+$/i.test(value);
+        return /^[a-z\d\-_,@.\s]+$/i.test(value);
       case 'int':
         return validator.isInt(`${value}`);
       case 'string':
         return true;
+      case 'alpha':
+        return validator.isAlpha(value);
       default:
         return false;
     }

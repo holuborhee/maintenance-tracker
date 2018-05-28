@@ -3,6 +3,8 @@ node_js:
 - "stable"
 install:
   - npm install
+services:
+  - postgresql
 script:
   - npm test
 env:
@@ -10,5 +12,11 @@ env:
 cache:
   directories:
     - "node_modules"
+before_script:
+  - createuser olubori -s -U postgres
+  - createdb traka_test --username=olubori
+  - npm run migrate
+  - npm run seeduser
+  - npm run seedrequest
 after_success :
   - npm run coverage

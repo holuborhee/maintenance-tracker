@@ -16,7 +16,6 @@ before_script:
   - createuser olubori -s -U postgres
   - createdb traka_test --username=olubori
   - npm run migrate
-  - npm run seeduser
-  - npm run seedrequest
+  - npm run seed
 after_success :
   - npm run coverage

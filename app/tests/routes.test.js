@@ -24,7 +24,7 @@ describe('api/v1/auth/signup', () => {
         .end((err, res) => {
           expect(res).to.have.status(201);
           expect(res.body.status).to.equal('success');
-          expect(res.body.data.user).to.be.an('object').that.has.all.keys('id', 'firstName', 'lastName', 'phone', 'email', 'address', 'isAdmin', 'createdAt', 'updatedAt');
+          expect(res.body.data.user).to.be.an('object').that.has.all.keys('id', 'firstName', 'lastName', 'phone', 'email', 'address', 'createdAt', 'updatedAt');
           done();
         });
     });

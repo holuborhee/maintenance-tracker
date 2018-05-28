@@ -3,7 +3,7 @@ import SQL from './SQL';
 
 
 class Migrate {
-  static up() {
+  static createTables() {
     fs.readFile('app/database/migrateTables.sql', async (err, data) => {
       if (err) {
         throw err;
@@ -18,11 +18,11 @@ class Migrate {
     });
   }
 
-  static down() {
+  static dropTables() {
     // Function to bring down all tables
 
   }
 }
 
 
-Migrate.up();
+Migrate.createTables();

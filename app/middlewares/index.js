@@ -7,12 +7,12 @@ import { Request, User } from '../models';
 
 class Middleware {
   /* eslint consistent-return: "off" */
-  static async findOrFail(req, res, next) {
+  static async findRequestOrFail(req, res, next) {
     try {
       req.request = await Request.findById(req.params.requestId);
       next();
     } catch (err) {
-      return res.status(404).send({ status: 'error', message: `Requested resource cannot be found on this server${err}` });
+      return res.status(404).send({ status: 'error', message: `Requested resource cannot be found on this server ${err}` });
     }
   }
 
@@ -36,8 +36,7 @@ class Middleware {
     const required = ['firstName', 'lastName', 'phone', 'email', 'password', 'address'];
     const allInRequest = Helper.validateRequiredInRequest(req.body, required);
     if (allInRequest === true) {
-      const data = Middleware.checkUserValue(req.body);
-      if (data === true) { return next(); } return res.status(422).send({ status: 'fail', data });
+      return next();
     }
     return res.status(400).send(allInRequest);
   }
@@ -60,14 +59,14 @@ class Middleware {
     if (data === true) { next(); } else { return res.status(422).send({ status: 'fail', data }); }
   }
 
-  static checkUserValue(body) {
+  /* static checkUserValue(body) {
     const data = Helper.validateClassProperties('User', body);
     return data;
-  }
+  } */
 
   static async isAuthenticated(req, res, next) {
     try {
-      const token = req.headers.authorization.split(' ')[1];
+      const token = req.headers.authorization;
       const decoded = jwt.verify(token, process.env.JWT_KEY);
       req.user = await User.findById(decoded.id);
       next();
@@ -87,16 +86,15 @@ class Middleware {
     if (req.user.isAdmin) {
       return next();
     }
-    try {
-      const request = await Request.findById(req.params.requestId);
-      if (request.userId === req.user.id) {
-        return next();
-      }
-    } catch (ex) {
-      return res.status(500).send({ status: 'error', message: 'There was an internal server error' });
+    if (req.request.userId === req.user.id) {
+      return next();
     }
-
     return res.status(403).send({ status: 'error', message: 'You are not authorized to peform this action' });
+  }
+
+  static isRequestModifiable(req, res, next) {
+    if (req.request.currentStatus !== 'UNRESOLVED') { return res.status(422).send({ status: 'error', message: 'Modification is not allowed on an approved, rejected, or resolved request' }); }
+    return next();
   }
 }
 

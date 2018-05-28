@@ -1,20 +1,12 @@
 import SQL from '../database/SQL';
 import Request from './Request';
+import Model from './Model';
 
 
 const query = { text: null, values: null };
-class User {
+class User extends Model {
   constructor(currUser) {
-    this.id = currUser.id;
-    this.firstName = currUser.first_name;
-    this.lastName = currUser.last_name;
-    this.address = currUser.address;
-    this.phone = currUser.phone;
-    this.email = currUser.email;
-    this.password = currUser.password;
-    this.isAdmin = currUser.is_admin;
-    this.createdAt = currUser.created_at;
-    this.updatedAt = currUser.updated_at;
+    super('users', currUser);
   }
 
   static create(properties) {
@@ -50,22 +42,6 @@ class User {
     });
   }
 
-
-  static all() {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const results = await SQL.query('SELECT * FROM users');
-        const users = results.rows.map(res => new User(res));
-        resolve(users);
-      } catch (err) {
-        reject(err);
-      }
-    });
-  }
-
-  isAdmin() {
-    return this.isAdmin;
-  }
 
   static findById(id) {
     return new Promise(async (resolve, reject) => {

@@ -78,7 +78,7 @@ describe.skip('Request Model', () => {
 });
 
 
-describe('Model User', () => {
+describe.skip('Model User', () => {
   describe('all()', () => {
     it('should return instances of User Model', (done) => {
       User.all()

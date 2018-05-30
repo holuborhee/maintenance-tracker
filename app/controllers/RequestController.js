@@ -17,10 +17,10 @@ class RequestController {
 
   static async create(req, res) {
     const {
-      title, description, address, requestUrgency,
+      title, description, address, maxHour,
     } = req.body;
     const newRequest = {
-      title, description, address, requestUrgency,
+      title, description, address, maxHour,
     };
     newRequest.userId = req.user.id;
     newRequest.address = address || req.user.address;
@@ -35,36 +35,43 @@ class RequestController {
 
   static async update(req, res) {
     try {
-      const request = Request.update(req.body);
+      const {
+        title, description, address, maxHour,
+      } = req.body;
+
+      let { request } = req;
+      request.title = title || request.title;
+      request.description = description || request.description;
+      request.address = address || request.address;
+      request.maxHour = maxHour || request.maxHour;
+      if (request.maxHour <= 24) {
+        request.maxHour = 24;
+      } else if (request.maxHour <= 72) {
+        request.maxHour = 72;
+      } else {
+        request.maxHour = 168;
+      }
+
+      request = await request.save();
       return res.send({ status: 'success', data: { request } });
     } catch (err) {
       return res.status(500).send({ status: 'error', message: `Something went wrong${err}` });
     }
   }
 
-  static async resolve(req, res) {
-    let request;
+  static async changeStatus(req, res, newStatus) {
     try {
-      request = await req.request.resolveMe();
-    } catch (err) {
-      return res.status(500).send({ status: 'error', message: `Something went wrong${err}` });
-    }
+      let { request } = req;
+      request.currentStatus = newStatus;
 
-    return res.status(200).send({ status: 'success', data: { request } });
+      request = await request.save();
+      return res.send({ status: 'success', data: { request } });
+    } catch (err) {
+      return res.status(500).send({ status: 'error', message: `Something went wrong ${err}` });
+    }
   }
 
-  static async disapprove(req, res) {
-    let request;
-    try {
-      request = await req.request.rejectMe();
-    } catch (err) {
-      return res.status(500).send({ status: 'error', message: `Something went wrong${err}` });
-    }
-
-    return res.status(200).send({ status: 'success', data: { request } });
-  }
-
-  static show(req, res) {
+  static showDetails(req, res) {
     return res.send({ status: 'success', data: { request: req.request } });
   }
 

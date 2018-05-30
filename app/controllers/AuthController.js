@@ -30,10 +30,12 @@ class AuthController {
         address: validator.escape(req.body.address),
       });
     } catch (err) {
-      res.status(500).send({ status: 'error', message: `Something went wrong while trying to register ${err}` });
+      return res.status(500).send({ status: 'error', message: `Something went wrong while trying to register ${err}` });
     }
 
     delete user.password;
+    delete user.isAdmin;
+    delete user.table;
     return res.status(201).send({ status: 'success', data: { user } });
   }
 
@@ -44,16 +46,19 @@ class AuthController {
       if (users.length > 0) {
         [user] = users;
         if (!AuthController.comparePassword(req.body.password, user.password)) {
-          res.status(401).send({ status: 'error', message: 'You do not have permission to login' });
+          return res.status(401).send({ status: 'error', message: 'You do not have permission to login' });
         }
+      } else {
+        return res.status(401).send({ status: 'error', message: 'You do not have permission to login' });
       }
     } catch (err) {
-      res.status(500).send({ status: 'error', message: `Something went wrong while trying to login ${err}` });
+      return res.status(500).send({ status: 'error', message: `Something went wrong while trying to login ${err}` });
     }
 
     delete user.password;
+    delete user.isAdmin;
     const token = jwt.sign({ id: user.id }, process.env.JWT_KEY, { expiresIn: '1h' });
-    return res.status(200).send({ status: 'success', data: { token, user } });
+    return res.status(200).send({ status: 'success', token, data: { user } });
   }
 
   static comparePassword(reqPassword, dbPassword) {

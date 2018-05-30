@@ -1,6 +1,11 @@
-CREATE TYPE status AS ENUM ('RESOLVED', 'UNRESOLVED', 'REJECTED', 'APPROVED');
-CREATE TYPE urgency AS ENUM ('24', '72', '168');
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS requests;
+DROP TYPE IF EXISTS status;
+DROP TYPE IF EXISTS urgency;
+DROP TYPE IF EXISTS allowed_hours;
 
+CREATE TYPE status AS ENUM ('RESOLVED', 'UNRESOLVED', 'REJECTED', 'APPROVED');
+CREATE TYPE allowed_hours AS ENUM ('24', '72', '168');
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
@@ -21,7 +26,7 @@ title varchar(150) NOT null,
 description text NOT null,
 requested_on TIMESTAMP NOT null,
 current_status status NOT null,
-request_urgency urgency NOT null,
+max_hour allowed_hours NOT null,
 user_id INT NOT NULL REFERENCES users,
 address text,
 created_at TIMESTAMP NOT null,

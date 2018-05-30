@@ -7,7 +7,7 @@ const routes = express();
 
 routes.route('/users/requests')
   .get(Middleware.isAuthenticated, RequestController.all)
-  .post(Middleware.isAuthenticated, Middleware.checkRequestRequired, RequestController.create);
+  .post(Middleware.isAuthenticated, Middleware.checkNewRequest, RequestController.create);
 
 routes.get('/requests', Middleware.isAuthenticated, Middleware.adminAuthorized, RequestController.all);
 

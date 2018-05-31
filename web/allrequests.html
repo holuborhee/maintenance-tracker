@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traka | New Request</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+<nav class="nav--auth">
+  <span class="title"><h4 class="logo">Traka</h4> <p>admin</small></p></span>
+  <a href="/logout">Log out</a>
+</nav>
+<main class="main-wrapper">
+  <div class="sidebar">
+    <ul class="menu">
+      <li class="active"><a href="admin_allrequests.html">Latest Requests</a></li>
+      <li><a href="#">Resolved Requests</a></li>
+      <li>Pending Requests</li>
+      <li>Rejected Requests</li>
+    </ul>
+  </div>
+
+  <div class="content-wrapper">
+    <h1 class="page-title">All Requests</h1>
+    <div class="request-collection">
+     
+    </div>
+  </div>
+</main>
+
+<script type="text/javascript">
+window.onload = () => {
+  let requestcollection = document.querySelector('.request-collection')
+  fetch('/api/v1/requests',{
+       method: 'GET',
+       headers: {
+        'content-type': 'application/json',
+        'authorization': localStorage.getItem('authorization')
+      },
+  })
+  .then(async res => {
+    let response = await res.json();
+      switch(response.status){
+        case 'success':
+          for(request of response.data.requests){
+            requestcollection.innerHTML += requestPreview(request);
+          }
+          break;
+        case 'error':
+          window.location = '/login';
+          break;
+      }
+      
+  })
+  .catch(err => {
+    console.log('There was an error' + err);
+  })
+}
+
+
+
+
+function requestPreview(request){
+
+  const shortDescription = request.description.length > 90 ? request.description.substring(0,90) : request.description;
+  return `<div class="request-preview">
+        <a href="/request/${request.id}">
+        <div class="preview__body">
+          <h5>${request.title}</h5>
+          <p>${shortDescription}...</p>
+        </div>
+        <div class="preview__foot">
+          
+          <span class="status-unresolved">${request.currentStatus}</span>
+          <span>2hrs ago</span>
+        </div>
+        
+        </a>
+      </div>`;
+}
+
+</script>
+</body>
+</html>

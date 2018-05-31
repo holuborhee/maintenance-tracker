@@ -24,15 +24,15 @@ routes.route('/users/requests/:requestId')
 
 routes.put(
   '/requests/:requestId/resolve', Middleware.validateIntParam, Middleware.findRequestOrFail,
-  Middleware.isAuthenticated, Middleware.adminAuthorized, (req, res) => RequestController.changeStatus(req, res, 'RESOLVED'),
+  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.validateChangeStatus, (req, res) => RequestController.changeStatus(req, res, 'RESOLVED'),
 );
 routes.put(
   '/requests/:requestId/approve', Middleware.validateIntParam, Middleware.findRequestOrFail,
-  Middleware.isAuthenticated, Middleware.adminAuthorized, (req, res) => RequestController.changeStatus(req, res, 'APPROVED'),
+  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.validateChangeStatus, (req, res) => RequestController.changeStatus(req, res, 'APPROVED'),
 );
 routes.put(
   '/requests/:requestId/disapprove', Middleware.validateIntParam, Middleware.findRequestOrFail,
-  Middleware.isAuthenticated, Middleware.adminAuthorized, (req, res) => RequestController.changeStatus(req, res, 'REJECTED'),
+  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.validateChangeStatus, (req, res) => RequestController.changeStatus(req, res, 'REJECTED'),
 );
 
 routes.post('/auth/signup', Middleware.checkRegisterUser, AuthController.register);

@@ -1,0 +1,1183 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">json</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#requests-amp-responses" class="toc-h1 toc-link" data-title="requests-amp-responses">Requests &amp; Responses</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#requests" class="toc-h2 toc-link" data-title="requests">Requests</a>
+                  </li>
+                  <li>
+                    <a href="#responses" class="toc-h2 toc-link" data-title="responses">Responses</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="signup">Signup</a>
+                  </li>
+                  <li>
+                    <a href="#log-in" class="toc-h2 toc-link" data-title="log-in">Log in</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#request-resource" class="toc-h1 toc-link" data-title="request-resource">Request Resource</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-requests" class="toc-h2 toc-link" data-title="get-all-requests">Get ALL REQUESTS</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-request-39-s-detail" class="toc-h2 toc-link" data-title="get-a-request-s-detail">Get a request's Detail</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-request" class="toc-h2 toc-link" data-title="create-a-request">Create a Request</a>
+                  </li>
+                  <li>
+                    <a href="#modify-a-request-39-s-detail" class="toc-h2 toc-link" data-title="modify-a-request-s-detail">Modify a request's detail</a>
+                  </li>
+                  <li>
+                    <a href="#resolve-a-request" class="toc-h2 toc-link" data-title="resolve-a-request">Resolve a request</a>
+                  </li>
+                  <li>
+                    <a href="#approve-a-request" class="toc-h2 toc-link" data-title="approve-a-request">Approve a request</a>
+                  </li>
+                  <li>
+                    <a href="#disapprove-a-request" class="toc-h2 toc-link" data-title="disapprove-a-request">Disapprove a request</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to TRAKA API! You can use this API to access our endpoints, which allows you to create and manage maintenance requests.</p>
+
+<p>You can connect to our API by making an HTTP request in any language of choice, and you get a JSON response.</p>
+<h1 id='requests-amp-responses'>Requests &amp; Responses</h1><h2 id='requests'>Requests</h2>
+<p>All routes in this api uses four HTTP VERBS</p>
+
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>DELETE</li>
+</ul>
+
+<p>Your can send data with any of these to any of our routes, data sent depends on the route you are pointing to. Data sent can be in three ways</p>
+
+<ul>
+<li>BODY (Form Data mostly sent with <strong>POST</strong> or <strong>PUT</strong>)</li>
+<li>QUERY STRING e.g. <code>api/v1/users?name=Ben</code>, value is Ben, key is name</li>
+<li>PARAMS e.g. route <code>api/v1/users/:id</code> will be accessed as  <code>api/v1/users/1</code> value 1 is replacing <strong>id</strong></li>
+</ul>
+
+<p>Through out this doc we will always state the form of sending any data either it be as <strong>body</strong> or <strong>query string</strong> or <strong>parameter</strong></p>
+<h2 id='responses'>Responses</h2>
+<p>We follow the <a href="https://labs.omniti.com/labs/jsend">Jsend Response Format</a> for our response. Response from our API will always consist of</p>
+
+<ul>
+<li>STATUS</li>
+<li>BODY</li>
+</ul>
+<h3 id='our-api-uses-the-following-status-codes'>Our API uses the following status codes:</h3>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request OK -- Your request is valid and processes were successfull.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created -- Returned when new resource is created</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request -- The syntax of the request is wrong</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict -- The specified resource already exist</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity -- Returned for validation errors</td>
+</tr>
+</tbody></table>
+<h3 id='response-body'>Response Body</h3>
+<blockquote>
+<p>Success response: 2XX status range</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">user</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"John David"</span><span class="p">,</span><span class="w">
+      </span><span class="err">phone</span><span class="p">:</span><span class="w"> </span><span class="s2">"08164488989"</span><span class="p">,</span><span class="w">
+      </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"daveholuborhee@gmail.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Fail response: 4XX status range</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email should be unique"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Error response: 5XX status range</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"An internal server error occured"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The response body is always in json format, it has three keys</p>
+
+<ul>
+<li>status <em>This should not be confused with the status code on data</em></li>
+<li>data</li>
+<li>message</li>
+</ul>
+
+<p>Only two of this will be returned at any point, it&#39;s either &quot;status and data&quot; or &quot;status and message&quot;.</p>
+
+<aside class="success">
+NOTE: data will sometimes be null, even when status is "success", e.g. getting all requests made by a user, and the user has no request yet.
+</aside>
+<h1 id='authentication'>Authentication</h1>
+<p>There are two routes for authentication</p>
+
+<ul>
+<li>Login</li>
+<li>SignUp</li>
+</ul>
+<h2 id='signup'>Signup</h2>
+<blockquote>
+<p><strong>201</strong> Success response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+234356556565"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daveh_oluborhee@gmail.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6, dsdsfsf, yaba"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T16:54:45.811Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T16:54:45.811Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Failure Response for missing required variable <em>example for email and phone</em>:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">phone</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"The phone field is required."</span><span class="p">],</span><span class="w">
+    </span><span class="err">email</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Email is required"</span><span class="p">],</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://weconnect-ng.herokuapp.com/api/v1/signup</code></p>
+<h3 id='request-data'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstName</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>This is the name of the user to be registered</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>This is the name of the user to be registered</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>Contact Phone number for user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>Contact Email Address for user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>The Password for subsequent authentication.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>Address user lives at</td>
+</tr>
+</tbody></table>
+<h2 id='log-in'>Log in</h2>
+<blockquote>
+<p><strong>200</strong> Success response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImlhdCI6MTUyNzc4OTcwMSwiZXhwIjoxNTI3NzkzMzAxfQ.6gAhNUcW5Vhce-wBdYowywS-iQiScyAIpek3MFhOEE4"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+234356556565"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daveh_oluborhee@gmail.com"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6, dsdsfsf, yaba"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T16:54:45.811Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T16:54:45.811Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>401</strong> Failure Response for missing wrong email and phone</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email and password doesn't match"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Failure Response for short password</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">password</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"The password must be at least 6 characters."</span><span class="p">],</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://weconnect-ng.herokuapp.com/api/v1/signup</code></p>
+<h3 id='request-data-2'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>Contact Email Address for user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>The Password for subsequent authentication.</td>
+</tr>
+</tbody></table>
+<h1 id='request-resource'>Request Resource</h1>
+<ul>
+<li>GET ALL REQUESTS</li>
+<li>GET A REQUEST&#39;S DETAIL</li>
+<li>CREATE A REQUEST</li>
+<li>MODIFY A REQUEST&#39;S DETAIL</li>
+<li>APPROVE A REQUEST</li>
+<li>DISAPPROVE A REQUEST</li>
+<li>RESOLVE A REQUEST</li>
+</ul>
+<h2 id='get-all-requests'>Get ALL REQUESTS</h2>
+<blockquote>
+<p><strong>200</strong> Success Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aut labore tenetur ipsam ipsum adipisci."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reprehenderit nobis aliquid. Dolores qui soluta. Possimus possimus deleniti exercitationem placeat incidunt et beatae voluptatibus."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.958Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 398 Madagascar"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.958Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.958Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autem nesciunt unde repellat consequatur consequatur vero."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Illum veniam quidem saepe. Ut ad sapiente eos autem quae molestias. Consequatur officiis error praesentium nulla sed. Natus quod omnis voluptatum sit doloremque quae dolores maxime qui. Cupiditate autem omnis eius maxime officia."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.958Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 895 Switzerland"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.958Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.958Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Numquam nihil quia repudiandae quae molestias illum laboriosam tempore."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Explicabo et quibusdam impedit at ut. Enim in sequi enim accusantium et ut cumque qui. Ad illo rerum ea. Et doloribus laudantium. Quas ullam accusantium beatae. Quasi nihil harum laborum ipsum inventore sit occaecati tenetur dolorum."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 527 Armenia"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Non ullam sed."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recusandae error at temporibus cum sunt vero fugit veniam. Qui esse rerum qui vel. Consequatur quidem sapiente sed voluptatem voluptatem."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 121 Bosnia and Herzegovina"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Facilis labore voluptates ea esse aspernatur et autem asperiores."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aperiam ipsa repellat reiciendis nisi consequatur. Sapiente nihil est ad impedit. Officiis cumque blanditiis blanditiis aut velit distinctio sunt. Est iure eum impedit."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 664 Lebanon"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eos nihil cupiditate unde qui voluptas id eum."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A eum ad quaerat. Qui ut aut nesciunt ut veritatis voluptas maxime. Maxime magnam quaerat at. Minima consequuntur nam saepe nostrum aut non in aut rem. Nihil laboriosam modi fuga."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 011 American Samoa"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Est pariatur est et consequuntur quos magni."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Voluptatibus ut perspiciatis. Inventore magnam ducimus ipsa soluta et. Est quaerat labore harum et sit ut non. Quasi quis id nostrum ut. Nihil qui eos qui rem neque harum placeat. A qui accusantium eos quis est sed."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 770 Suriname"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consequatur fugiat dolorum deleniti dolore laboriosam veritatis quia."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sapiente commodi quis nihil totam molestias porro voluptatibus eum esse. Beatae voluptatum deleniti ipsam labore beatae labore est quod animi. Provident perspiciatis asperiores est minus sunt consectetur. Id perferendis id. Rerum aut rerum eaque natus non maxime iusto."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 112 Bermuda"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dolor quisquam suscipit dolor in earum nihil id quis ut."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saepe ex nostrum earum unde nesciunt. Aut nam sunt exercitationem quis numquam veritatis odio. Hic nam debitis officiis incidunt ut occaecati perspiciatis voluptatum porro. Modi et delectus. Dignissimos odit ducimus velit sit distinctio accusamus ut. Voluptatem laboriosam possimus maiores quasi unde."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 823 Iran"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Et minima doloremque labore quibusdam iste rerum architecto veritatis."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Perferendis nisi porro expedita omnis voluptatum recusandae eaque. Sit qui voluptatem iste quae deserunt molestiae odio aperiam. Dolores et aliquam. Voluptatibus repellendus autem natus totam sed."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 028 Central African Republic"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Perferendis magni non."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porro hic cum delectus maxime assumenda at dolorum sit ad. Tempore amet nulla laboriosam. Nulla qui laboriosam et. Harum neque quasi consectetur quo ut aperiam ipsa fuga. Fugiat repellendus delectus laborum minima."</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 627 Lesotho"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T12:12:16.959Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another Title"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good description"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T20:13:33.415Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another aAdres"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T20:13:33.415Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-29T20:13:33.415Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another Title"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good description"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:05:19.922Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another aAdres"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:05:19.922Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:05:19.922Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another Title"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good description"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:09:25.621Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another aAdres"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:09:25.621Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:09:25.621Z"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p><strong>200</strong> Success Response when No request is found</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">status</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">requests</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<ul>
+<li><code>GET https://traka.herokuapp.com/api/v1/users/requests</code></li>
+<li><code>GET https://traka.herokuapp.com/api/v1/requests</code> <strong>Admin Authorization required</strong></li>
+</ul>
+<h3 id='request-data-3'>Request Data</h3>
+<p>None</p>
+<h2 id='get-a-request-39-s-detail'>Get a request&#39;s Detail</h2>
+<blockquote>
+<p><strong>200</strong> Success response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another Title"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good description"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:09:25.621Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Another aAdres"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:09:25.621Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-30T13:09:25.621Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>404</strong> Error response when Id is not found</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request does not exist: Error: Resource not found on server"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://traka.herokuapp.com/api/v1/users/requests/:requestId</code></p>
+<h3 id='request-data-4'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requestId</td>
+<td>parameter</td>
+<td>null</td>
+<td>true</td>
+<td>Id of request to get</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-request'>Create a Request</h2>
+<blockquote>
+<p><strong>201</strong> Success Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop issue"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new Laptop has issue, My new Laptop has issue"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:46:09.272Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3, 4567"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:46:09.272Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:46:09.272Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Error Response for missing required title</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"The title field is required."</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Error Response for short description</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"The description must be at least 30 characters."</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://traka.herokuapp.com/api/v1/users/requests</code></p>
+<h3 id='request-data-5'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>Descriptive title for request</td>
+</tr>
+<tr>
+<td>description</td>
+<td>body</td>
+<td>null</td>
+<td>true</td>
+<td>Description of the request</td>
+</tr>
+<tr>
+<td>address</td>
+<td>body</td>
+<td>user&#39;s address</td>
+<td>false</td>
+<td>Address where maintenance is required</td>
+</tr>
+<tr>
+<td>maxHour</td>
+<td>body</td>
+<td>168</td>
+<td>false</td>
+<td>Maximum hour required for request to be solved</td>
+</tr>
+</tbody></table>
+<h2 id='modify-a-request-39-s-detail'>Modify a request&#39;s detail</h2>
+<blockquote>
+<p><strong>200</strong> Success Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop issue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A better description, for the request that meets the standard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNRESOLVED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3, 4567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:54:42.430Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>404</strong> Error response when requestId is not found</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request does not exist Error: Resource not found on server"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Error response when request has either been approved, disapproved or resolved</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modification is not allowed on an approved, rejected, or resolved request"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>PUT https://traka.herokuapp.com/api/v1/users/requests/:requestId</code></p>
+<h3 id='request-data-6'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requestId</td>
+<td>parameter</td>
+<td>null</td>
+<td>true</td>
+<td>Id of request to modify</td>
+</tr>
+<tr>
+<td>title</td>
+<td>body</td>
+<td>null</td>
+<td>false</td>
+<td>Title of Request</td>
+</tr>
+<tr>
+<td>description</td>
+<td>body</td>
+<td>null</td>
+<td>false</td>
+<td>Description of Request</td>
+</tr>
+<tr>
+<td>maxHour</td>
+<td>body</td>
+<td>null</td>
+<td>false</td>
+<td>Maximum Hour to resolve request</td>
+</tr>
+<tr>
+<td>address</td>
+<td>body</td>
+<td>null</td>
+<td>false</td>
+<td>Address for maintenance</td>
+</tr>
+</tbody></table>
+<h2 id='resolve-a-request'>Resolve a request</h2>
+<blockquote>
+<p><strong>200</strong> Success Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop issue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A better description, for the request that meets the standard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RESOLVED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3, 4567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:54:42.430Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>404</strong> Error response when requestId is not found</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request does not exist Error: Resource not found on server"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Error response when request is not approved</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot resolve this request, request is not approved"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PUT https://traka.herokuapp.com/api/v1/requests/:requestId/resolve</code></p>
+<h3 id='request-data-7'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requestId</td>
+<td>parameter</td>
+<td>null</td>
+<td>true</td>
+<td>Id of request to modify</td>
+</tr>
+</tbody></table>
+<h2 id='approve-a-request'>Approve a request</h2>
+<blockquote>
+<p><strong>200</strong> Success Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop issue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A better description, for the request that meets the standard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3, 4567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:54:42.430Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>404</strong> Error response when requestId is not found</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request does not exist Error: Resource not found on server"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Error response when request is already resolved</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot approve this request, request is already resolved"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>PUT https://traka.herokuapp.com/api/v1/requests/:requestId/approve</code></p>
+<h3 id='request-data-8'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requestId</td>
+<td>parameter</td>
+<td>null</td>
+<td>true</td>
+<td>Id of request to modify</td>
+</tr>
+</tbody></table>
+<h2 id='disapprove-a-request'>Disapprove a request</h2>
+<blockquote>
+<p><strong>200</strong> Success Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requests"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laptop issue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A better description, for the request that meets the standard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requestedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currentStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maxHour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3, 4567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:50:28.308Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-31T19:54:42.430Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>404</strong> Error response when requestId is not found</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This request does not exist Error: Resource not found on server"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>400</strong> Error response when request is already resolved</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You cannot disapprove this request, request is already resolved"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>PUT https://traka.herokuapp.com/api/v1/requests/:requestId/disapprove</code></p>
+<h3 id='request-data-9'>Request Data</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requestId</td>
+<td>parameter</td>
+<td>null</td>
+<td>true</td>
+<td>Id of request to modify</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">json</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -16,7 +16,7 @@ describe('api/v1/auth/signup', () => {
         .send({
           firstName: 'John',
           lastName: 'David',
-          phone: '081644889',
+          phone: '+2348164488989',
           email: 'daveholuee@gmail.com',
           password: 'password',
           address: 'any addrress',

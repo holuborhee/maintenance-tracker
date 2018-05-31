@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traka | Login</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <style type="text/css">
+  html, body {
+    height: 100%;
+  }
+
+  #password-error, #email-error {
+    display: none;
+    color: red;
+  }
+  </style>
+</head>
+<body>
+<main class="main-wrapper wrapper--auth">
+
+  <div class="sidebar auth__sidebar">
+    <h4 class="logo">Traka</h4>
+    <h1>LOG IN</h1>
+    <a href="/">Back to homepage</a>
+  </div>
+  <div class="content-wrapper auth__body">
+  <form class="form-wrapper form--auth" action="/dashboard" onsubmit="return performLogin(this)" id="form--login">
+
+   <div class="group-input">
+      <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your registered email here">
+    <div id="email-error"></div>
+   </div>
+   <div class="group-input">
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="Your Password here">
+    <div id="password-error"></div>
+  </div>
+  <input type="submit" name="" value="Login" class="btn--primary">
+  <p>Are you new here? <a href="/register">Click here to register</a></p>
+  </form>
+  </div>
+</main>
+<script type="text/javascript">
+  function performLogin(){
+     let errors = {};
+   
+     let formData = new FormData(document.querySelector('form'))
+     fetch('/api/v1/auth/login',{
+       body: JSON.stringify({email: formData.get('email'), password: formData.get('password')}),
+       method: 'POST',
+       headers: {
+        'content-type': 'application/json'
+      },
+     })
+     .then(async res => {
+      let response = await res.json();
+      switch(response.status){
+        case 'fail':
+          displayError(response.data.errors)
+          break;
+        case 'success':
+          localStorage.setItem('authorization', response.token);
+          window.location = '/dashboard';
+          break;
+        case 'error':
+        const email = document.querySelector('#email-error');
+          email.innerHTML = response.message;
+          email.style.display = 'block';
+      }
+     })
+     .catch(err => {
+      alert('Error');
+      return false;
+     })
+
+     return false;
+  }
+
+
+  function displayError(errors){
+    const password = document.querySelector('#password-error');
+    const email = document.querySelector('#email-error');
+    
+    Object.keys(errors).forEach(key => {
+      if(key == 'password'){
+        for(err of errors[key]){
+          password.innerHTML += err + '<br />';
+        }
+        password.style.display = 'block';
+      }else if(key == 'email'){
+        for(err of errors[key]){
+          email.innerHTML += err + '<br />';
+        }
+        email.style.display = 'block';
+      }
+        
+    })
+
+  }
+</script>
+</body>
+</html>
+

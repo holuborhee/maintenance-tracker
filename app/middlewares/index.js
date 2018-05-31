@@ -5,6 +5,31 @@ import Validator from 'validatorjs';
 import { Request, User } from '../models';
 
 
+Validator.registerAsync('email_available', (email, attribute, req, passes) => User.getByEmail(email)
+  .then((res) => {
+    if (res.length > 0) passes(false, 'Email already exists.'); // if email exists
+    else { passes(); } // if email doesn't exist
+  })
+  .catch((err) => {
+    throw new Error(err);
+  }));
+
+Validator.registerAsync('can_status_change', (status, attribute, req, passes) => {
+  switch (req.request.currentStatus) {
+    case 'REJECTED':
+      if (status !== 'APPROVED') { passes(false, 'Cannot RESOLVE a rejected request'); } else { passes(); }
+      break;
+    case 'RESOLVED':
+      passes(false, 'Request already approved');
+      break;
+    case 'APPROVED':
+      passes();
+      break;
+    default:
+      passes(false, 'Not a valid status');
+  }
+});
+
 class Middleware {
   /* eslint consistent-return: "off" */
   static async findRequestOrFail(req, res, next) {
@@ -12,7 +37,7 @@ class Middleware {
       req.request = await Request.findById(req.params.requestId);
       next();
     } catch (err) {
-      return res.status(404).send({ status: 'error', message: `Requested resource cannot be found on this server ${err}` });
+      return res.status(404).send({ status: 'error', message: `This request does not exist: ${err}` });
     }
   }
 
@@ -25,33 +50,44 @@ class Middleware {
   static checkNewRequest(req, res, next) {
     const validation = new Validator(req.body, {
       title: 'required|max:150',
-      description: 'required',
-      currentStatus: 'in:RESOLVED,REJECTED,APPROVED',
+      description: 'required|min:30',
     });
     if (validation.passes()) {
       return next();
     }
 
-    return res.status(400).send({ status: 'error', data: validation.errors });
+    return res.status(400).send({ status: 'fail', data: validation.errors });
+  }
+
+  static validateChangeStatus(req, res, next) {
+    const validation = new Validator(req.body, {
+      currentStatus: 'in:RESOLVED,REJECTED,APPROVED|can_status_change',
+    });
+
+    validation.passes(() => next());
+    validation.fails(() => res.status(400).send({ status: 'fail', data: validation.errors }));
   }
 
   static checkRegisterUser(req, res, next) {
+    req.body.email = validator.normalizeEmail(req.body.email);
     const validation = new Validator(req.body, {
-      firstName: 'required|max:50|alpha',
-      lastName: 'required|max:50|alpha',
-      phone: 'required',
-      email: 'required|email',
+      firstName: 'required|min:2|max:50|alpha',
+      lastName: 'required|min:2|max:50|alpha',
+      phone: 'required|regex:/^\\+?[0-9]{11,14}$/',
+      email: 'required|email|email_available',
       password: 'required|min:6',
       address: 'required',
     });
-    if (validation.passes()) {
-      return next();
-    }
-
-    return res.status(400).send({ status: 'error', data: validation.errors });
+    validation.passes(() => next());
+    validation.fails(() => {
+      if (validation.errors.errorCount === 1 && validation.errors.get('email').includes('Email already exists.')) { return res.status(409).send({ status: 'fail', data: validation.errors }); }
+      return res.status(400).send({ status: 'fail', data: validation.errors });
+    });
   }
 
+
   static checkLoginUser(req, res, next) {
+    req.body.email = validator.normalizeEmail(req.body.email);
     const validation = new Validator(req.body, {
       email: 'required|email',
       password: 'required|min:6',
@@ -60,7 +96,7 @@ class Middleware {
       return next();
     }
 
-    return res.status(400).send({ status: 'error', data: validation.errors });
+    return res.status(400).send({ status: 'fail', data: validation.errors });
   }
 
 

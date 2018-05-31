@@ -13,9 +13,9 @@ class Model {
   }
 
 
-  static async all() {
+  static async all(table) {
     try {
-      return await this.performQuery(`SELECT * FROM ${this.table}`);
+      return await this.performQuery(`SELECT * FROM ${table}`);
     } catch (ex) {
       return ex;
     }

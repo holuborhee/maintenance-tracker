@@ -44,12 +44,24 @@ class Request extends Model {
     let results;
     try {
       results = await super.where('requests', 'id', '=', id);
+
       results = Request.resolveToRequests(results);
+      if (results.length < 1) { throw new Error('Resource not found on server'); }
+      return results[0];
     } catch (err) {
       throw new Error(err);
     }
+  }
 
-    return results[0];
+  static async all() {
+    let results;
+    try {
+      results = await super.all('requests');
+      results = Request.resolveToRequests(results);
+      return results;
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 
   static resolveToRequests(results) {

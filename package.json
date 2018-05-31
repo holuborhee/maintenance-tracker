@@ -44,7 +44,8 @@
     "npm": "^6.0.1",
     "nyc": "^11.8.0",
     "pg": "^7.4.3",
-    "validator": "^10.2.0"
+    "validator": "^10.2.0",
+    "validatorjs": "^3.14.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

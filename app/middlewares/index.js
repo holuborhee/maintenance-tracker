@@ -1,7 +1,7 @@
 import validator from 'validator';
 import jwt from 'jsonwebtoken';
+import Validator from 'validatorjs';
 
-import Helper from '../Helper';
 import { Request, User } from '../models';
 
 
@@ -22,47 +22,47 @@ class Middleware {
     } else return res.status(400).send({ status: 'error', message: 'Server cannot understand this request' });
   }
 
-  static checkRequestRequired(req, res, next) {
-    const required = ['title', 'description'];
-    const allInRequest = Helper.validateRequiredInRequest(req.body, required);
-    if (allInRequest === true) {
-      next();
-    } else {
-      return res.status(400).send(allInRequest);
+  static checkNewRequest(req, res, next) {
+    const validation = new Validator(req.body, {
+      title: 'required|max:150',
+      description: 'required',
+      currentStatus: 'in:RESOLVED,REJECTED,APPROVED',
+    });
+    if (validation.passes()) {
+      return next();
     }
+
+    return res.status(400).send({ status: 'error', data: validation.errors });
   }
 
   static checkRegisterUser(req, res, next) {
-    const required = ['firstName', 'lastName', 'phone', 'email', 'password', 'address'];
-    const allInRequest = Helper.validateRequiredInRequest(req.body, required);
-    if (allInRequest === true) {
+    const validation = new Validator(req.body, {
+      firstName: 'required|max:50|alpha',
+      lastName: 'required|max:50|alpha',
+      phone: 'required',
+      email: 'required|email',
+      password: 'required|min:6',
+      address: 'required',
+    });
+    if (validation.passes()) {
       return next();
     }
-    return res.status(400).send(allInRequest);
+
+    return res.status(400).send({ status: 'error', data: validation.errors });
   }
 
   static checkLoginUser(req, res, next) {
-    const required = ['email', 'password'];
-    const allInRequest = Helper.validateRequiredInRequest(req.body, required);
-    if (allInRequest === true) { return next(); }
-    return res.status(400).send(allInRequest);
-  }
-
-  static checkRequestValue(req, res, next) {
-    if (Object.keys(req.body).length === 0) { return res.status(400).send({ status: 'error', message: 'Server cannot understand this request' }); }
-    try {
-      req.user = User.findById(req.body.user);
-    } catch (err) {
-      return res.status(422).send({ status: 'fail', data: { user: 'This user cannot be found on the server' } });
+    const validation = new Validator(req.body, {
+      email: 'required|email',
+      password: 'required|min:6',
+    });
+    if (validation.passes()) {
+      return next();
     }
-    const data = Helper.validateClassProperties('Request', req.body);
-    if (data === true) { next(); } else { return res.status(422).send({ status: 'fail', data }); }
+
+    return res.status(400).send({ status: 'error', data: validation.errors });
   }
 
-  /* static checkUserValue(body) {
-    const data = Helper.validateClassProperties('User', body);
-    return data;
-  } */
 
   static async isAuthenticated(req, res, next) {
     try {

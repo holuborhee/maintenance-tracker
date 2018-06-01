@@ -46,10 +46,10 @@ class AuthController {
       if (users.length > 0) {
         [user] = users;
         if (!AuthController.comparePassword(req.body.password, user.password)) {
-          return res.status(401).send({ status: 'error', message: 'You do not have permission to login' });
+          return res.status(401).send({ status: 'error', message: 'Email and Password does not match' });
         }
       } else {
-        return res.status(401).send({ status: 'error', message: 'You do not have permission to login' });
+        return res.status(401).send({ status: 'error', message: 'Email and Password does not match' });
       }
     } catch (err) {
       return res.status(500).send({ status: 'error', message: `Something went wrong while trying to login ${err}` });

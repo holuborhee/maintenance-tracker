@@ -24,15 +24,18 @@ routes.route('/users/requests/:requestId')
 
 routes.put(
   '/requests/:requestId/resolve', Middleware.validateIntParam, Middleware.findRequestOrFail,
-  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.validateChangeStatus, (req, res) => RequestController.changeStatus(req, res, 'RESOLVED'),
+  Middleware.isAuthenticated, Middleware.adminAuthorized, (req, res, next) => {
+    if (req.request.currentStatus !== 'APPROVED' && req.request.currentStatus !== 'RESOLVED') return res.status(422).send({ status: 'error', message: 'You cannot resolve an unapproved request' });
+    return next();
+  }, (req, res) => RequestController.changeStatus(req, res, 'RESOLVED'),
 );
 routes.put(
   '/requests/:requestId/approve', Middleware.validateIntParam, Middleware.findRequestOrFail,
-  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.validateChangeStatus, (req, res) => RequestController.changeStatus(req, res, 'APPROVED'),
+  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.checkResolved, (req, res) => RequestController.changeStatus(req, res, 'APPROVED'),
 );
 routes.put(
   '/requests/:requestId/disapprove', Middleware.validateIntParam, Middleware.findRequestOrFail,
-  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.validateChangeStatus, (req, res) => RequestController.changeStatus(req, res, 'REJECTED'),
+  Middleware.isAuthenticated, Middleware.adminAuthorized, Middleware.checkResolved, (req, res) => RequestController.changeStatus(req, res, 'REJECTED'),
 );
 
 routes.post('/auth/signup', Middleware.checkRegisterUser, AuthController.register);

@@ -1,3 +1,4 @@
+import Validator from 'validatorjs';
 import Request from '../models/Request';
 
 class RequestController {
@@ -51,6 +52,13 @@ class RequestController {
       } else {
         request.maxHour = 168;
       }
+
+      const validation = new Validator(request, {
+        title: 'required|max:150|regex:/(\\w+\\s){3,}/',
+        description: 'required|min:30|regex:/(\\w+\\s){10,}/',
+      });
+
+      if (validation.fails()) { return res.status(400).send({ status: 'fail', data: validation.errors.all() }); }
 
       request = await request.save();
       return res.send({ status: 'success', data: { request } });

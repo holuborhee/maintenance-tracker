@@ -43,6 +43,22 @@ class User extends Model {
   }
 
 
+  static getByPhone(phone) {
+    const sqlQuery = `SELECT * FROM users WHERE phone = '${phone}'`;
+    return new Promise(async (resolve, reject) => {
+      try {
+        const results = await SQL.query(sqlQuery);
+
+        const users = results.rows.map(res => new User(res));
+
+        resolve(users);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+
   static findById(id) {
     return new Promise(async (resolve, reject) => {
       try {

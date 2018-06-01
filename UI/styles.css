@@ -219,6 +219,7 @@ nav .title {
 .group-input label {
   width: 100%;
   color: var(--secondary);
+  font-size: 1.5rem;
 }
 
 
@@ -363,6 +364,17 @@ input[type="submit"], button {
 @media (max-width: 575.98px) { 
   .wrapper--auth {
     flex-direction: column;
+  }
+
+  .main-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar .menu{
+    display: flex;
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 100%;
   }
 
   h1, .heading {

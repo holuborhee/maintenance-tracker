@@ -6,6 +6,8 @@
 
 Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
 
+![Traka Landing Page](http://res.cloudinary.com/naera/image/upload/v1528227094/Screen_Shot_2018-06-05_at_7.59.46_PM_yoorol.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.

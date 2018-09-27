@@ -5,6 +5,20 @@ import Middleware from '../middlewares';
 
 const routes = express();
 
+routes.route('/questions')
+  .get((req, res) => {
+    res.status(200).send({
+      status: 'success',
+      data: [
+        'I am constantly curious and I attend to my personal growth and development and I pursue continous improvement',
+        'I am resilient, dilligent, resourceful, consistent, determined and persevering',
+        'I am passionate about what I do',
+        'I am accountable and I take responsibility',
+        'I am collaborative, I work well with teeam members',
+      ],
+    });
+  });
+
 routes.route('/users/requests')
   .get(Middleware.isAuthenticated, RequestController.all)
   .post(Middleware.isAuthenticated, Middleware.checkNewRequest, RequestController.create);
